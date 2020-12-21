@@ -10,14 +10,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Linear Regression
+# Linear Regression
 
-### Subsection 1
+## Subsection 1
 
-### Subsection 2
+## Subsection 2
 
-## Multi
+# Multi
 
-### Subsection 1
+## Subsection 1
 
-### Subsection 2
+## Subsection 2
