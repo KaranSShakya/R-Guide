@@ -1,13 +1,18 @@
 ---
 title: "Applied Econometrics"
 site: workflowr::wflow_site
-output:
+output:  
   html_document:
-    toc: true
+    code_folding: show
+    highlight: haddock
+    keep_md: yes
+    number_sections: no
+    theme: readable
+    toc: yes
     toc_float:
-      collapsed: true
-    toc_depth:
-      doc_depth: 2
+      collapsed: no
+      smooth_scroll: yes
+      toc_depth: 2
 editor_options:
   chunk_output_type: console
 ---
