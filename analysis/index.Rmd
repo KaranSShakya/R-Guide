@@ -5,7 +5,7 @@ output:
   html_document:
     toc: true
     toc_float:
-      collapsed: false
+      collapsed: true
     toc_depth:
       doc_depth: 2
 editor_options:
