@@ -3,28 +3,22 @@ title: "Applied Econometrics"
 site: workflowr::wflow_site
 output:  
   html_document:
-    code_folding: show
-    highlight: haddock
-    keep_md: yes
-    number_sections: no
     theme: readable
     toc: yes
     toc_float:
       collapsed: no
-      smooth_scroll: yes
+      smooth_scroll: no
       toc_depth: 2
-editor_options:
-  chunk_output_type: console
 ---
 
 # 1. Linear Regression
 
-## 1.1 
+## 1.1 Yes
 
-## 1.2 
+## 1.2 No
 
 # 2. Multi
 
-## 2.1
+## 2.1 Maybe
 
-## 2.2
+## 2.2 Time
