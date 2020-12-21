@@ -4,11 +4,19 @@ site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
     toc: true
+    toc_float: true
+    toc_depth: 2
 editor_options:
   chunk_output_type: console
 ---
 
 ## Linear Regression
+
+### Subsection 1
+
+### Subsection 2
+
+## Multi
 
 ### Subsection 1
 
