@@ -3,20 +3,14 @@ title: "Applied Econometrics"
 site: workflowr::wflow_site
 output:  
   html_document:
-    toc: yes
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
+    toc: true
+    toc_float: true
 ---
 
-# 1. Linear Regression
+# Title
 
-## 1.1 Yes
+## Times
 
-## 1.2 No
+# Go
 
-# 2. Multi
-
-## 2.1 Maybe
-
-## 2.2 Time
+## Away
