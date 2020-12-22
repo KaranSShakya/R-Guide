@@ -5,91 +5,67 @@ output:
   html_document
 ---
 
-# Titleee
+```{r eval=T, echo=F, warning=F, message=F}
+# Packages
+library(tidyverse)
+library(readxl)
+```
 
-## Timess
+```{r eval=T, echo=F, warning=F}
+# Data Import
+corr_1 <- read_excel("data/corr_1.xlsx")
+```
 
-# Go
+# Setting Up
 
-## Away
+## Packages 
+* **tidyverse** - basic package for data wrangling
 
-# Title
+* **readxl** - allows inputs of excel files
 
-## Timess
+* **readr** - allows inputs of text files
 
-# Go
+* **stargazer** - better organized regression outputs 
 
-## Away
+## Output Tables
 
-# Title
+# Initial Statistics
 
-## Timess
+## Correlation
 
-# Go
+### One Variable
 
-## Away
+Correlation is the strength of linear assosciation. It can be sensitive to outliers.
+```{r eval=T, echo=T}
+cor <- corr_1 %>% 
+  summarise(r=cor(X, Y)) %>% 
+  pull(r)
+cor
+```
+Correlations can also be visualized through scatterplots which are the foundation of econometric analysis. 
+```{r eval=T, echo=T, message=F}
+ggplot(corr_1, aes(x=X, y=Y))+
+  geom_point(alpha=0.5)+
+  geom_smooth(method = "lm", se=F)
+```
+```{r eval=T, echo=F}
+remove(corr_1, cor)
+```
 
-# Title
+### Multiple Variable
 
-## Timess
+# Simple Linear Regression
 
-# Go
+## Visualizing Assumptions
 
-## Away
+## Dummy Variables
 
-# Title
+# Hypothesis Testing
 
-## Timess
 
-# Go
 
-## Away
 
-# Title
 
-## Timess
 
-# Go
 
-## Away
-
-# Title
-
-## Timess
-
-# Go
-
-## Away
-
-# Title
-
-## Timess
-
-# Go
-
-## Away
-
-# Title
-
-## Timess
-
-# Go
-
-## Away
-
-# Title
-
-## Timess
-
-# Go
-
-## Away
-
-# Title
-
-## Timess
-
-# Go
-
-## Away
 
