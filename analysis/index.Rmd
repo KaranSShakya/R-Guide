@@ -9,11 +9,15 @@ output:
 # Packages
 library(tidyverse)
 library(readxl)
+library(broom)
+
+library(gridExtra)
 ```
 
 ```{r eval=T, echo=F, warning=F}
 # Data Import
 corr_1 <- read_excel("data/corr_1.xlsx")
+cancer_test <- read_excel("data/cancer_test.xlsx")
 ```
 
 # Setting Up
@@ -25,7 +29,10 @@ corr_1 <- read_excel("data/corr_1.xlsx")
 
 * **readr** - allows inputs of text files
 
+* **broom** - result organization with tidy tibbles
+
 * **stargazer** - better organized regression outputs 
+
 
 ## Output Tables
 
@@ -49,14 +56,54 @@ ggplot(corr_1, aes(x=X, y=Y))+
   geom_smooth(method = "lm", se=F)
 ```
 ```{r eval=T, echo=F}
-remove(corr_1, cor)
+remove(cor)
 ```
 
-### Multiple Variable
+### Multiple Variables
 
 # Simple Linear Regression
+Linear regression can be performed by:
+```{r eval=T, echo=T}
+lm.model <- lm(Cancer_Diagnosis~Median_Income+Median_Age+Percent_Black, data=cancer_test)
+lm.res <- augment(lm.model) # visualize all residuals in table form
+```
 
-## Visualizing Assumptions
+## Least Square Lines
+The following code is for two variables:
+```{r eval=T, echo=T}
+lm.ls <- lm.res %>% 
+  summarize(x.sd=sd(Median_Age), y.sd=sd(Cancer_Diagnosis),
+            cor=cor(Cancer_Diagnosis, Median_Age)) %>%
+  mutate(slope=(x.sd/y.sd)*cor) # Slope = 0.015
+```
+When we look at the **lm** model, the slope is also 0.015.
+
+## Visualizing Assumptions 
+
+**a.** Linearity (scatterplot + residual plot - residuals needs to be random)
+
+**b.** Nearly normal residuals (histogram of residuals or QQ residual plot)
+
+**c.** Constant variability (residual plot)
+
+[Link](https://gallery.shinyapps.io/slr_diag/) for interactive regression diagnostic test. 
+
+```{r eval=T, echo=T}
+a <- ggplot(lm.res, aes(x=.fitted, y=.resid))+
+  geom_point()+
+  geom_hline(yintercept = 0, linetype="dashed", color="red")+
+  labs(title="Residuals vs Fitted Values", x="Fitted Values", y="Residuals")
+b <- ggplot(lm.res, aes(x=.resid))+
+  geom_density()+
+  labs(title="Histogram of residuals", x="Residuals") #geom_density can also be added
+c <- ggplot(lm.res, aes(sample=.resid))+
+  stat_qq()+
+  stat_qq_line()
+```
+```{r eval=T, echo=F}
+grid.arrange(a, b, c, ncol=3)
+remove(a,b,c)
+```
 
 ## Dummy Variables
 
