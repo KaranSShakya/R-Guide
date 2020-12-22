@@ -3,12 +3,10 @@ title: "Applied Econometrics"
 site: workflowr::wflow_site
 output:  
   html_document:
-    theme: readable
     toc: yes
     toc_float:
-      collapsed: no
-      smooth_scroll: no
-      toc_depth: 2
+      collapsed: false
+      smooth_scroll: false
 ---
 
 # 1. Linear Regression
