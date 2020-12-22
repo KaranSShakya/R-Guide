@@ -11,7 +11,8 @@ navbar:
     href: license.html
 output:
   workflowr::wflow_html:
-    toc: yes
-    toc_float: yes
+    toc: true
+    toc_float:
+      collapsed: false
     theme: cosmo
     highlight: textmate

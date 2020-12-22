@@ -1,0 +1,16 @@
+---
+title: "Home"
+site: workflowr::wflow_site
+output:
+  html_document:
+    toc: TRUE
+    number_sections: TRUE
+---
+
+## R Markdown
+
+### Test
+
+## Including Plots
+
+### Another
