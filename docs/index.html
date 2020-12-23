@@ -441,7 +441,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has staged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -508,16 +508,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreeefcd28444b9e57d658ed66368d88f5f8fdfee3f7targetblankefcd284a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/efcd28444b9e57d658ed66368d88f5f8fdfee3f7" target="_blank">efcd284</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree2f9473e0d84369998bd01cf50498a86139699097targetblank2f9473ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/2f9473e0d84369998bd01cf50498a86139699097" target="_blank">2f9473e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreeefcd28444b9e57d658ed66368d88f5f8fdfee3f7targetblankefcd284a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree2f9473e0d84369998bd01cf50498a86139699097targetblank2f9473ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/efcd28444b9e57d658ed66368d88f5f8fdfee3f7" target="_blank">efcd284</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/2f9473e0d84369998bd01cf50498a86139699097" target="_blank">2f9473e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -530,10 +530,6 @@ Ignored files:
 
 Unstaged changes:
     Modified:   analysis/index.Rmd
-
-Staged changes:
-    Modified:   analysis/index.Rmd
-    New:        data/lag.xlsx
 
 </code></pre>
 <p>
@@ -572,6 +568,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/2f9473e0d84369998bd01cf50498a86139699097/analysis/index.Rmd" target="_blank">2f9473e</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-22
+</td>
+<td>
+lagged regression
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/2f9473e0d84369998bd01cf50498a86139699097/docs/index.html" target="_blank">2f9473e</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-22
+</td>
+<td>
+lagged regression
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1221,11 +1251,8 @@ KaranSShakya
 <div id="dummy-variables" class="section level1">
 <h1><span class="header-section-number">4</span> Dummy Variables</h1>
 </div>
-<div id="hypothesis-testing" class="section level1">
-<h1><span class="header-section-number">5</span> Hypothesis Testing</h1>
-</div>
 <div id="lagged-regression" class="section level1">
-<h1><span class="header-section-number">6</span> Lagged Regression</h1>
+<h1><span class="header-section-number">5</span> Lagged Regression</h1>
 <pre class="r"><code>lag1 &lt;- lag %&gt;% 
   mutate(Work_1 = lag(Work, 1)) %&gt;% 
   mutate(Work_2 = lag(Work, 2))
@@ -1287,6 +1314,14 @@ kable(head(lag1))</code></pre>
 </table>
 <p>Using this we can perform linear regression the normal way:</p>
 <pre class="r"><code>reg &lt;- lm(Income ~ Work+Work_1+Work_2, data=dataset)</code></pre>
+</div>
+<div id="hypothesis-testing" class="section level1">
+<h1><span class="header-section-number">6</span> Hypothesis Testing</h1>
+<div id="t-test-b0" class="section level2">
+<h2><span class="header-section-number">6.1</span> t-test b=0</h2>
+</div>
+<div id="confidence-interval" class="section level2">
+<h2><span class="header-section-number">6.2</span> Confidence Interval</h2>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1331,6 +1366,7 @@ loaded via a namespace (and not attached):
 [49] promises_1.1.0   xml2_1.3.2       ellipsis_0.3.0   generics_0.0.2  
 [53] vctrs_0.3.0      tools_4.0.0      glue_1.4.1       hms_0.5.3       
 [57] yaml_2.2.1       colorspace_1.4-1 rvest_0.3.5      haven_2.2.0     </code></pre>
+</div>
 </div>
 </div>
 

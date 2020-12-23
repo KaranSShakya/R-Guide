@@ -110,8 +110,6 @@ remove(a,b,c)
 
 # Dummy Variables
 
-# Hypothesis Testing
-
 # Lagged Regression
 ```{r eval=T, echo=T}
 lag1 <- lag %>% 
@@ -128,6 +126,10 @@ reg <- lm(Income ~ Work+Work_1+Work_2, data=dataset)
 remove(lag, lag1)
 ```
 
+# Hypothesis Testing
 
+## t-test b=0
+
+## Confidence Interval
 
 
