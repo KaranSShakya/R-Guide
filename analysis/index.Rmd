@@ -12,15 +12,18 @@ library(tidyverse)
 library(readxl)
 library(broom)
 library(stargazer)
+library(jtools)
 
 library(gridExtra)
 ```
 
 ```{r eval=T, echo=F, warning=F}
 # Data Import
+bloodp <- read_excel("data/bloodp.xlsx")
 corr_1 <- read_excel("data/corr_1.xlsx")
 cancer_test <- read_excel("data/cancer_test.xlsx")
 lag <- read_excel("data/lag.xlsx")
+dummy <- read_excel("data/dummy.xlsx")
 ```
 
 # Setting Up
@@ -32,12 +35,23 @@ lag <- read_excel("data/lag.xlsx")
 
 * **readr** - allows inputs of text files
 
+* **jtools** - `summ` functions for better regression outputs
+
 * **broom** - result organization with tidy tibbles
 
 * **stargazer** - better organized regression outputs 
 
 
+
 ## Output Tables
+Here is a basic example of linear regression. Age and Weight of an individual is used to predict the blood pressure.
+```{r eval=T, echo=T}
+model <- lm(bloodp~age+weight, data=bloodp)
+summ(model)
+```
+The function `summ` is good and direct in printing output. The base r `summary` is okay to use, and the more intricate `stargazer` is good too.
+
+`summ` will be used mostly here when printing regression outputs.
 
 # Initial Statistics
 
@@ -45,14 +59,14 @@ lag <- read_excel("data/lag.xlsx")
 
 ### One Variable
 
-Correlation is the strength of linear assosciation. It can be sensitive to outliers.
+Correlation is the strength of linear assosciation. It can be sensitive to outliers. The `pull` function is used to print out the correlation value more.
 ```{r eval=T, echo=T}
 cor <- corr_1 %>% 
   summarise(r=cor(X, Y)) %>% 
   pull(r)
 cor
 ```
-Correlations can also be visualized through scatterplots which are the foundation of econometric analysis. 
+Correlations can also be visualized through scatterplots which important to any econometric analysis. Method = "lm" produces the blue linear regression line. 
 ```{r eval=T, echo=T, message=F}
 ggplot(corr_1, aes(x=X, y=Y))+
   geom_point(alpha=0.5)+
@@ -63,8 +77,9 @@ remove(cor)
 ```
 
 ### Multiple Variables
+ADD
 
-# Simple Linear Regression
+# Understanding Linear Regression
 Linear regression can be performed by:
 ```{r eval=T, echo=T}
 lm.model <- lm(Cancer_Diagnosis~Median_Income+Median_Age+Percent_Black, data=cancer_test)
@@ -108,7 +123,14 @@ grid.arrange(a, b, c, ncol=3)
 remove(a,b,c)
 ```
 
+# Robust Standard Errors
+
 # Dummy Variables
+Group 1, Group 2, and Group 3 are all dummy variables (0 or 1). When regressors are dummy variables you need to regress it without the intercept term.
+```{r eval=T, echo=T}
+reg <- lm(Earnings ~ -1+Group1+Group2+Group3, data=dummy)
+summ(reg)
+```
 
 # Lagged Regression
 ```{r eval=T, echo=T}

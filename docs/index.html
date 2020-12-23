@@ -508,16 +508,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree2f9473e0d84369998bd01cf50498a86139699097targetblank2f9473ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/2f9473e0d84369998bd01cf50498a86139699097" target="_blank">2f9473e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree9a80c9d9f5f8ec5b0673e103a287e17cbfe198c1targetblank9a80c9da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/9a80c9d9f5f8ec5b0673e103a287e17cbfe198c1" target="_blank">9a80c9d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree2f9473e0d84369998bd01cf50498a86139699097targetblank2f9473ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree9a80c9d9f5f8ec5b0673e103a287e17cbfe198c1targetblank9a80c9da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/2f9473e0d84369998bd01cf50498a86139699097" target="_blank">2f9473e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/9a80c9d9f5f8ec5b0673e103a287e17cbfe198c1" target="_blank">9a80c9d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -527,6 +527,12 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  .DS_Store
+    Untracked:  data/.DS_Store
+    Untracked:  data/bloodp.xlsx
+    Untracked:  data/dummy.xlsx
 
 Unstaged changes:
     Modified:   analysis/index.Rmd
@@ -568,6 +574,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/9a80c9d9f5f8ec5b0673e103a287e17cbfe198c1/analysis/index.Rmd" target="_blank">9a80c9d</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-22
+</td>
+<td>
+minor changes to toc order
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/9a80c9d9f5f8ec5b0673e103a287e17cbfe198c1/docs/index.html" target="_blank">9a80c9d</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-22
+</td>
+<td>
+minor changes to toc order
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1110,12 +1150,36 @@ Start workflowr project.
 <li><p><strong>tidyverse</strong> - basic package for data wrangling</p></li>
 <li><p><strong>readxl</strong> - allows inputs of excel files</p></li>
 <li><p><strong>readr</strong> - allows inputs of text files</p></li>
+<li><p><strong>jtools</strong> - <code>summ</code> functions for better regression outputs</p></li>
 <li><p><strong>broom</strong> - result organization with tidy tibbles</p></li>
 <li><p><strong>stargazer</strong> - better organized regression outputs</p></li>
 </ul>
 </div>
 <div id="output-tables" class="section level2">
 <h2><span class="header-section-number">1.2</span> Output Tables</h2>
+<p>Here is a basic example of linear regression. Age and Weight of an individual is used to predict the blood pressure.</p>
+<pre class="r"><code>model &lt;- lm(bloodp~age+weight, data=bloodp)
+summ(model)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 11
+Dependent Variable: bloodp
+Type: OLS linear regression 
+
+MODEL FIT:
+F(2,8) = 168.76, p = 0.00
+R² = 0.98
+Adj. R² = 0.97 
+
+Standard errors: OLS
+-------------------------------------------------
+                     Est.    S.E.   t val.      p
+----------------- ------- ------- -------- ------
+(Intercept)         30.99   11.94     2.59   0.03
+age                  0.86    0.25     3.47   0.01
+weight               0.33    0.13     2.56   0.03
+-------------------------------------------------</code></pre>
+<p>The function <code>summ</code> is good and direct in printing output. The base r <code>summary</code> is okay to use, and the more intricate <code>stargazer</code> is good too.</p>
+<p><code>summ</code> will be used mostly here when printing regression outputs.</p>
 </div>
 </div>
 <div id="initial-statistics" class="section level1">
@@ -1124,62 +1188,26 @@ Start workflowr project.
 <h2><span class="header-section-number">2.1</span> Correlation</h2>
 <div id="one-variable" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> One Variable</h3>
-<p>Correlation is the strength of linear assosciation. It can be sensitive to outliers.</p>
+<p>Correlation is the strength of linear assosciation. It can be sensitive to outliers. The <code>pull</code> function is used to print out the correlation value more.</p>
 <pre class="r"><code>cor &lt;- corr_1 %&gt;% 
   summarise(r=cor(X, Y)) %&gt;% 
   pull(r)
 cor</code></pre>
 <pre><code>[1] 0.8351438</code></pre>
-<p>Correlations can also be visualized through scatterplots which are the foundation of econometric analysis.</p>
+<p>Correlations can also be visualized through scatterplots which important to any econometric analysis. Method = “lm” produces the blue linear regression line.</p>
 <pre class="r"><code>ggplot(corr_1, aes(x=X, y=Y))+
   geom_point(alpha=0.5)+
   geom_smooth(method = &quot;lm&quot;, se=F)</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
-Past versions of unnamed-chunk-4-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-4-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/KaranSShakya/R-Guide/blob/7a501fae24c9d40e2794b41890583089a30bb17f/docs/figure/index.Rmd/unnamed-chunk-4-1.png" target="_blank">7a501fa</a>
-</td>
-<td>
-KaranSShakya
-</td>
-<td>
-2020-12-22
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/index.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="multiple-variables" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Multiple Variables</h3>
+<p>ADD</p>
 </div>
 </div>
 </div>
-<div id="simple-linear-regression" class="section level1">
-<h1><span class="header-section-number">3</span> Simple Linear Regression</h1>
+<div id="understanding-linear-regression" class="section level1">
+<h1><span class="header-section-number">3</span> Understanding Linear Regression</h1>
 <p>Linear regression can be performed by:</p>
 <pre class="r"><code>lm.model &lt;- lm(Cancer_Diagnosis~Median_Income+Median_Age+Percent_Black, data=cancer_test)
 lm.res &lt;- augment(lm.model) # visualize all residuals in table form</code></pre>
@@ -1208,51 +1236,38 @@ b &lt;- ggplot(lm.res, aes(x=.resid))+
 c &lt;- ggplot(lm.res, aes(sample=.resid))+
   stat_qq()+
   stat_qq_line()</code></pre>
-<p><img src="figure/index.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
-Past versions of unnamed-chunk-9-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-9-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/KaranSShakya/R-Guide/blob/257addca3b1a1ca00dd888ec1aa8af598430b6cc/docs/figure/index.Rmd/unnamed-chunk-9-1.png" target="_blank">257addc</a>
-</td>
-<td>
-KaranSShakya
-</td>
-<td>
-2020-12-22
-</td>
-</tr>
-</tbody>
-</table>
+<p><img src="figure/index.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-</div>
+<div id="robust-standard-errors" class="section level1">
+<h1><span class="header-section-number">4</span> Robust Standard Errors</h1>
 </div>
 <div id="dummy-variables" class="section level1">
-<h1><span class="header-section-number">4</span> Dummy Variables</h1>
+<h1><span class="header-section-number">5</span> Dummy Variables</h1>
+<p>Group 1, Group 2, and Group 3 are all dummy variables (0 or 1). When regressors are dummy variables you need to regress it without the intercept term.</p>
+<pre class="r"><code>reg &lt;- lm(Earnings ~ -1+Group1+Group2+Group3, data=dummy)
+summ(reg)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 4266
+Dependent Variable: Earnings
+Type: OLS linear regression 
+
+MODEL FIT:
+F(3,4263) = 3842.49, p = 0.00
+R² = 0.73
+Adj. R² = 0.73 
+
+Standard errors: OLS
+------------------------------------------------
+                   Est.     S.E.   t val.      p
+------------ ---------- -------- -------- ------
+Group1         22880.48   467.45    48.95   0.00
+Group2         25080.17   380.02    66.00   0.00
+Group3         27973.63   404.78    69.11   0.00
+------------------------------------------------</code></pre>
 </div>
 <div id="lagged-regression" class="section level1">
-<h1><span class="header-section-number">5</span> Lagged Regression</h1>
+<h1><span class="header-section-number">6</span> Lagged Regression</h1>
 <pre class="r"><code>lag1 &lt;- lag %&gt;% 
   mutate(Work_1 = lag(Work, 1)) %&gt;% 
   mutate(Work_2 = lag(Work, 2))
@@ -1260,55 +1275,55 @@ kable(head(lag1))</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Year</th>
-<th align="left">Income</th>
-<th align="left">Work</th>
-<th align="left">Work_1</th>
-<th align="left">Work_2</th>
+<th align="right">Year</th>
+<th align="right">Income</th>
+<th align="right">Work</th>
+<th align="right">Work_1</th>
+<th align="right">Work_2</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">2000</td>
-<td align="left">55</td>
-<td align="left">30</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="right">2000</td>
+<td align="right">55</td>
+<td align="right">30</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 </tr>
 <tr class="even">
-<td align="left">2001</td>
-<td align="left">60</td>
-<td align="left">31</td>
-<td align="left">30</td>
-<td align="left">NA</td>
+<td align="right">2001</td>
+<td align="right">60</td>
+<td align="right">31</td>
+<td align="right">30</td>
+<td align="right">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">2002</td>
-<td align="left">65</td>
-<td align="left">32</td>
-<td align="left">31</td>
-<td align="left">30</td>
+<td align="right">2002</td>
+<td align="right">65</td>
+<td align="right">32</td>
+<td align="right">31</td>
+<td align="right">30</td>
 </tr>
 <tr class="even">
-<td align="left">2003</td>
-<td align="left">70</td>
-<td align="left">33</td>
-<td align="left">32</td>
-<td align="left">31</td>
+<td align="right">2003</td>
+<td align="right">70</td>
+<td align="right">33</td>
+<td align="right">32</td>
+<td align="right">31</td>
 </tr>
 <tr class="odd">
-<td align="left">2004</td>
-<td align="left">75</td>
-<td align="left">34</td>
-<td align="left">33</td>
-<td align="left">32</td>
+<td align="right">2004</td>
+<td align="right">75</td>
+<td align="right">34</td>
+<td align="right">33</td>
+<td align="right">32</td>
 </tr>
 <tr class="even">
-<td align="left">2005</td>
-<td align="left">80</td>
-<td align="left">35</td>
-<td align="left">34</td>
-<td align="left">33</td>
+<td align="right">2005</td>
+<td align="right">80</td>
+<td align="right">35</td>
+<td align="right">34</td>
+<td align="right">33</td>
 </tr>
 </tbody>
 </table>
@@ -1316,12 +1331,12 @@ kable(head(lag1))</code></pre>
 <pre class="r"><code>reg &lt;- lm(Income ~ Work+Work_1+Work_2, data=dataset)</code></pre>
 </div>
 <div id="hypothesis-testing" class="section level1">
-<h1><span class="header-section-number">6</span> Hypothesis Testing</h1>
+<h1><span class="header-section-number">7</span> Hypothesis Testing</h1>
 <div id="t-test-b0" class="section level2">
-<h2><span class="header-section-number">6.1</span> t-test b=0</h2>
+<h2><span class="header-section-number">7.1</span> t-test b=0</h2>
 </div>
 <div id="confidence-interval" class="section level2">
-<h2><span class="header-section-number">6.2</span> Confidence Interval</h2>
+<h2><span class="header-section-number">7.2</span> Confidence Interval</h2>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1345,10 +1360,10 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gridExtra_2.3   stargazer_5.2.2 broom_0.5.6     readxl_1.3.1   
- [5] forcats_0.5.0   stringr_1.4.0   dplyr_0.8.5     purrr_0.3.4    
- [9] readr_1.3.1     tidyr_1.0.3     tibble_3.0.1    ggplot2_3.3.0  
-[13] tidyverse_1.3.0 knitr_1.28      workflowr_1.6.2
+ [1] gridExtra_2.3   jtools_2.1.1    stargazer_5.2.2 broom_0.5.6    
+ [5] readxl_1.3.1    forcats_0.5.0   stringr_1.4.0   dplyr_0.8.5    
+ [9] purrr_0.3.4     readr_1.3.1     tidyr_1.0.3     tibble_3.0.1   
+[13] ggplot2_3.3.0   tidyverse_1.3.0 knitr_1.28      workflowr_1.6.2
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.4.6     lubridate_1.7.8  lattice_0.20-41  assertthat_0.2.1
@@ -1356,16 +1371,17 @@ loaded via a namespace (and not attached):
  [9] backports_1.1.6  reprex_0.3.0     evaluate_0.14    highr_0.8       
 [13] httr_1.4.1       pillar_1.4.4     rlang_0.4.6      rstudioapi_0.11 
 [17] whisker_0.4      Matrix_1.2-18    rmarkdown_2.6    labeling_0.3    
-[21] splines_4.0.0    munsell_0.5.0    compiler_4.0.0   httpuv_1.5.2    
-[25] modelr_0.1.7     xfun_0.19        pkgconfig_2.0.3  mgcv_1.8-31     
-[29] htmltools_0.5.0  tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4    
-[33] dbplyr_1.4.3     withr_2.2.0      later_1.0.0      grid_4.0.0      
-[37] nlme_3.1-147     jsonlite_1.6.1   gtable_0.3.0     lifecycle_0.2.0 
-[41] DBI_1.1.0        git2r_0.27.1     magrittr_1.5     scales_1.1.1    
-[45] cli_2.0.2        stringi_1.4.6    farver_2.0.3     fs_1.4.1        
-[49] promises_1.1.0   xml2_1.3.2       ellipsis_0.3.0   generics_0.0.2  
-[53] vctrs_0.3.0      tools_4.0.0      glue_1.4.1       hms_0.5.3       
-[57] yaml_2.2.1       colorspace_1.4-1 rvest_0.3.5      haven_2.2.0     </code></pre>
+[21] splines_4.0.0    pander_0.6.3     munsell_0.5.0    compiler_4.0.0  
+[25] httpuv_1.5.2     modelr_0.1.7     xfun_0.19        pkgconfig_2.0.3 
+[29] mgcv_1.8-31      htmltools_0.5.0  tidyselect_1.1.0 fansi_0.4.1     
+[33] crayon_1.3.4     dbplyr_1.4.3     withr_2.2.0      later_1.0.0     
+[37] grid_4.0.0       nlme_3.1-147     jsonlite_1.6.1   gtable_0.3.0    
+[41] lifecycle_0.2.0  DBI_1.1.0        git2r_0.27.1     magrittr_1.5    
+[45] scales_1.1.1     cli_2.0.2        stringi_1.4.6    farver_2.0.3    
+[49] fs_1.4.1         promises_1.1.0   xml2_1.3.2       ellipsis_0.3.0  
+[53] generics_0.0.2   vctrs_0.3.0      tools_4.0.0      glue_1.4.1      
+[57] hms_0.5.3        yaml_2.2.1       colorspace_1.4-1 rvest_0.3.5     
+[61] haven_2.2.0     </code></pre>
 </div>
 </div>
 </div>
