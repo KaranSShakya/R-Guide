@@ -14,6 +14,7 @@ library(broom)
 library(stargazer)
 library(jtools)
 
+library(GGally)
 library(gridExtra)
 ```
 
@@ -24,6 +25,9 @@ corr_1 <- read_excel("data/corr_1.xlsx")
 cancer_test <- read_excel("data/cancer_test.xlsx")
 lag <- read_excel("data/lag.xlsx")
 dummy <- read_excel("data/dummy.xlsx")
+
+cancer.1 <- cancer_test %>% 
+  select(-7,-11,)
 ```
 
 # Setting Up
@@ -40,6 +44,8 @@ dummy <- read_excel("data/dummy.xlsx")
 * **broom** - result organization with tidy tibbles
 
 * **stargazer** - better organized regression outputs 
+
+* **sandwitch** - robust standard errors
 
 
 
@@ -66,35 +72,67 @@ cor <- corr_1 %>%
   pull(r)
 cor
 ```
+
+Observing correlation from regression. Sqrt of R^2 is correlation.
+```{r eval=T, echo=T}
+cor.lm <- lm(Y~X, data=corr_1)
+summ(cor.lm)
+```
+
+Or using base r function `cor`:
+```{r eval=T, echo=T}
+cor.2 <- cor(corr_1)
+cor.2
+```
+
 Correlations can also be visualized through scatterplots which important to any econometric analysis. Method = "lm" produces the blue linear regression line. 
 ```{r eval=T, echo=T, message=F}
 ggplot(corr_1, aes(x=X, y=Y))+
   geom_point(alpha=0.5)+
   geom_smooth(method = "lm", se=F)
 ```
+
+Or, you can use the effects plot. This is an example of the blood pressure model.
+```{r eval=T, echo=T}
+effect_plot(model, pred = age, interval = T, plot.points = T)
+```
 ```{r eval=T, echo=F}
 remove(cor)
 ```
 
 ### Multiple Variables
-ADD
+Multiple variables can be tabulated against eachother to observe the correlation. In this example, `cancer diagnosis ~ income + age + private + public + per_white + per_black`
+```{r eval=T, echo=F}
+cancer.2 <- cancer.1 %>% 
+  select(3,4,7,20,21,22,23)
+```
+
+Viewing correlation table:
+```{r eval=T, echo=T}
+cor.cancer <- cor(cancer.2)
+cor.cancer
+```
+
+Viewing in diagrams:
+```{r eval=T, echo=T}
+ggpairs(cancer.2)
+```
 
 # Understanding Linear Regression
-Linear regression can be performed by:
+
+`cancer diagnosis ~ income + age + private + public + per_white + per_black` model is used in the following examples.
+
 ```{r eval=T, echo=T}
-lm.model <- lm(Cancer_Diagnosis~Median_Income+Median_Age+Percent_Black, data=cancer_test)
-lm.res <- augment(lm.model) # visualize all residuals in table form
+lm.model <- lm(Cancer_Diagnosis~Median_Income+Median_Age+Private_Coverage+Public_Coverage+Percent_White+Percent_Black, data=cancer.2)
+summ(lm.model)
+```
+
+To visualize the residual table we use the function `augment`.
+```{r eval=T, echo=T}
+lm.res <- augment(lm.model) 
 ```
 
 ## Least Square Lines
-The following code is for two variables:
-```{r eval=T, echo=T}
-lm.ls <- lm.res %>% 
-  summarize(x.sd=sd(Median_Age), y.sd=sd(Cancer_Diagnosis),
-            cor=cor(Cancer_Diagnosis, Median_Age)) %>%
-  mutate(slope=(x.sd/y.sd)*cor) # Slope = 0.015
-```
-When we look at the **lm** model, the slope is also 0.015.
 
 ## Visualizing Assumptions 
 
@@ -122,6 +160,8 @@ c <- ggplot(lm.res, aes(sample=.resid))+
 grid.arrange(a, b, c, ncol=3)
 remove(a,b,c)
 ```
+
+## Covariance Matrix
 
 # Robust Standard Errors
 
