@@ -7,9 +7,11 @@ output:
 
 ```{r eval=T, echo=F, warning=F, message=F}
 # Packages
+library(knitr)
 library(tidyverse)
 library(readxl)
 library(broom)
+library(stargazer)
 
 library(gridExtra)
 ```
@@ -18,6 +20,7 @@ library(gridExtra)
 # Data Import
 corr_1 <- read_excel("data/corr_1.xlsx")
 cancer_test <- read_excel("data/cancer_test.xlsx")
+lag <- read_excel("data/lag.xlsx")
 ```
 
 # Setting Up
@@ -109,9 +112,21 @@ remove(a,b,c)
 
 # Hypothesis Testing
 
+# Lagged Regression
+```{r eval=T, echo=T}
+lag1 <- lag %>% 
+  mutate(Work_1 = lag(Work, 1)) %>% 
+  mutate(Work_2 = lag(Work, 2))
+kable(head(lag1))
+```
 
-
-
+Using this we can perform linear regression the normal way:
+```{r eval=F, echo=T}
+reg <- lm(Income ~ Work+Work_1+Work_2, data=dataset)
+```
+```{r eval=T, echo=F}
+remove(lag, lag1)
+```
 
 
 
