@@ -4,3 +4,123 @@ site: workflowr::wflow_site
 output:  
   html_document
 ---
+
+# Display
+
+## Inline form
+```{r eval=F, echo=T}
+$a+b=3$
+```
+Inline expression is simply $a+b=3$.
+
+## Display form
+```{r eval=F, echo=T}
+$$a+b=3$$
+```
+Display form is double $$a+b=3$$
+
+# Math Notations
+
+## Sub/Super-script
+```{r eval=F, echo=T}
+Subscript: $X_{i}$. Superscript: $X^{2}$. Combined: $X^{2}_{i}$
+```
+Subscript $X_{i}$, and superscript $X^{2}$. Combining them will be $X^{2}_{i}$.
+
+## Square root
+```{r eval=F, echo=T}
+$\sqrt{b^2-4ac}$
+```
+Example: $\sqrt{b^2-4ac}$
+
+## Fractions
+```{r eval=F, echo=T}
+$\frac{a}{b+c-1}$
+```
+Example: $\frac{a}{b+c-1}$
+
+## Great/Less Equals
+```{r eval=F, echo=T}
+$a \geq 20$, $a > 20$ $a \leq 20$, $a \neq 20$
+```
+Example: $a \geq 20$, $a > 20$ $a \leq 20$, $a \neq 20$
+
+## Summations
+```{r eval=F, echo=T}
+$\sum_{i=1}^{n} (x_i+1)^2$
+```
+Example: $\sum_{i=1}^{n} (x_i+1)^2$
+
+## Integration
+```{r eval=F, echo=T}
+$\int_0^{2\pi} \sin x~dx$
+```
+Example: $\int_0^{2\pi} \sin x~dx$
+
+# Brackets
+```{r eval=F, echo=T}
+$[z\{2a + b(c+1)\}]$
+```
+Example: $[z\{2a + b(c+1)\}]$
+
+Brackets that fit requires `\left` and `\right`
+```{r eval=F, echo=T}
+$\left (\frac{a}{b+1} \right)$
+```
+Example: $\left (\frac{a}{b+1} \right)$
+
+# Align
+You need to use `\begin{align}` and `\end{align}`.
+```{r eval=F, echo=T}
+$$
+\begin{align}
+2a+4b &=10 && \text{Equation 1}\\
+2(a+2b) &= 10\\
+a+2b &= 5
+\end{align}
+$$
+```
+$$
+\begin{align}
+2a+4b &=10 && \text{Equation 1}\\
+2(a+2b) &= 10\\
+a+2b &= 5
+\end{align}
+$$
+
+# Matrix
+```{r eval=F, echo=T}
+$$\mathbf{X} = \left[\begin{array}
+{rrr}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{array}\right]
+$$
+```
+$$
+\mathbf{X} = \left[\begin{array}
+{rrr}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{array}\right]
+$$
+
+# Optimization
+```{r eval=F, echo=T}
+$$
+\underset{q>0}{\text{max}} [V(q)+\delta_t + V'(q)]
+$$
+```
+$$
+\underset{q>0}{\text{max}} [V(q)+\delta_t + V'(q)]
+$$
+
+
+
+
+
+
+
+

@@ -375,13 +375,19 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
+  <a href="dataset.html">Dataset Manipulation</a>
+</li>
+<li>
+  <a href="visualization.html">Data Visualization</a>
+</li>
+<li>
   <a href="econometrics.html">Econometrics</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="latex.html">Latex</a>
 </li>
 <li>
-  <a href="license.html">License</a>
+  <a href="git.html">GIT</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -423,7 +429,7 @@ div.tocify {
 <strong>Last updated:</strong> 2020-12-24
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>R-Guide/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -444,23 +450,83 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreec613064ae438800e5428153d1525bfbaf9de8b88targetblankc613064a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/c613064ae438800e5428153d1525bfbaf9de8b88" target="_blank">c613064</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreec613064ae438800e5428153d1525bfbaf9de8b88targetblankc613064a" class="panel-collapse collapse">
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20201221code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20201221)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20201221code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20201221)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree863363afb02a849663ff6f0c6f36c5745f1184a5targetblank863363aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/863363afb02a849663ff6f0c6f36c5745f1184a5" target="_blank">863363a</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree863363afb02a849663ff6f0c6f36c5745f1184a5targetblank863363aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/c613064ae438800e5428153d1525bfbaf9de8b88" target="_blank">c613064</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/863363afb02a849663ff6f0c6f36c5745f1184a5" target="_blank">863363a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -471,14 +537,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  analysis/econometrics.Rmd
-    Untracked:  analysis/latex.Rmd
-
 Unstaged changes:
-    Modified:   analysis/_site.yml
-    Deleted:    analysis/home.Rmd
-    Modified:   analysis/index.Rmd
+    Modified:   analysis/latex.Rmd
 
 </code></pre>
 <p>
@@ -491,15 +551,204 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/latex.Rmd</code>) and HTML (<code>docs/latex.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/924d00b48d81d506165b27a23d6eba8456726979/analysis/latex.Rmd" target="_blank">924d00b</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-24
+</td>
+<td>
+Overall formatting + new sections
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/924d00b48d81d506165b27a23d6eba8456726979/docs/latex.html" target="_blank">924d00b</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-24
+</td>
+<td>
+Overall formatting + new sections
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="na" class="section level2">
-<h2><span class="header-section-number">0.1</span> NA</h2>
+<div id="display" class="section level1">
+<h1><span class="header-section-number">1</span> Display</h1>
+<div id="inline-form" class="section level2">
+<h2><span class="header-section-number">1.1</span> Inline form</h2>
+<pre class="r"><code>$a+b=3$</code></pre>
+<p>Inline expression is simply <span class="math inline">\(a+b=3\)</span>.</p>
+</div>
+<div id="display-form" class="section level2">
+<h2><span class="header-section-number">1.2</span> Display form</h2>
+<pre class="r"><code>$$a+b=3$$</code></pre>
+<p>Display form is double <span class="math display">\[a+b=3\]</span></p>
+</div>
+</div>
+<div id="math-notations" class="section level1">
+<h1><span class="header-section-number">2</span> Math Notations</h1>
+<div id="subsuper-script" class="section level2">
+<h2><span class="header-section-number">2.1</span> Sub/Super-script</h2>
+<pre class="r"><code>Subscript: $X_{i}$. Superscript: $X^{2}$. Combined: $X^{2}_{i}$</code></pre>
+<p>Subscript <span class="math inline">\(X_{i}\)</span>, and superscript <span class="math inline">\(X^{2}\)</span>. Combining them will be <span class="math inline">\(X^{2}_{i}\)</span>.</p>
+</div>
+<div id="square-root" class="section level2">
+<h2><span class="header-section-number">2.2</span> Square root</h2>
+<pre class="r"><code>$\sqrt{b^2-4ac}$</code></pre>
+<p>Example: <span class="math inline">\(\sqrt{b^2-4ac}\)</span></p>
+</div>
+<div id="fractions" class="section level2">
+<h2><span class="header-section-number">2.3</span> Fractions</h2>
+<pre class="r"><code>$\frac{a}{b+c-1}$</code></pre>
+<p>Example: <span class="math inline">\(\frac{a}{b+c-1}\)</span></p>
+</div>
+<div id="greatless-equals" class="section level2">
+<h2><span class="header-section-number">2.4</span> Great/Less Equals</h2>
+<pre class="r"><code>$a \geq 20$, $a &gt; 20$ $a \leq 20$, $a \neq 20$</code></pre>
+<p>Example: <span class="math inline">\(a \geq 20\)</span>, <span class="math inline">\(a &gt; 20\)</span> <span class="math inline">\(a \leq 20\)</span>, <span class="math inline">\(a \neq 20\)</span></p>
+</div>
+<div id="summations" class="section level2">
+<h2><span class="header-section-number">2.5</span> Summations</h2>
+<pre class="r"><code>$\sum_{i=1}^{n} (x_i+1)^2$</code></pre>
+<p>Example: <span class="math inline">\(\sum_{i=1}^{n} (x_i+1)^2\)</span></p>
+</div>
+<div id="integration" class="section level2">
+<h2><span class="header-section-number">2.6</span> Integration</h2>
+<pre class="r"><code>$\int_0^{2\pi} \sin x~dx$</code></pre>
+<p>Example: <span class="math inline">\(\int_0^{2\pi} \sin x~dx\)</span></p>
+</div>
+</div>
+<div id="brackets" class="section level1">
+<h1><span class="header-section-number">3</span> Brackets</h1>
+<pre class="r"><code>$[z\{2a + b(c+1)\}]$</code></pre>
+<p>Example: <span class="math inline">\([z\{2a + b(c+1)\}]\)</span></p>
+<p>Brackets that fit requires <code>\left</code> and <code>\right</code></p>
+<pre class="r"><code>$\left (\frac{a}{b+1} \right)$</code></pre>
+<p>Example: <span class="math inline">\(\left (\frac{a}{b+1} \right)\)</span></p>
+</div>
+<div id="align" class="section level1">
+<h1><span class="header-section-number">4</span> Align</h1>
+<p>You need to use <code>\begin{align}</code> and <code>\end{align}</code>.</p>
+<pre class="r"><code>$$
+\begin{align}
+2a+4b &amp;=10 &amp;&amp; \text{Equation 1}\\
+2(a+2b) &amp;= 10\\
+a+2b &amp;= 5
+\end{align}
+$$</code></pre>
+<p><span class="math display">\[
+\begin{align}
+2a+4b &amp;=10 &amp;&amp; \text{Equation 1}\\
+2(a+2b) &amp;= 10\\
+a+2b &amp;= 5
+\end{align}
+\]</span></p>
+</div>
+<div id="matrix" class="section level1">
+<h1><span class="header-section-number">5</span> Matrix</h1>
+<pre class="r"><code>$$\mathbf{X} = \left[\begin{array}
+{rrr}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{array}\right]
+$$</code></pre>
+<p><span class="math display">\[
+\mathbf{X} = \left[\begin{array}
+{rrr}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{array}\right]
+\]</span></p>
+</div>
+<div id="optimization" class="section level1">
+<h1><span class="header-section-number">6</span> Optimization</h1>
+<pre class="r"><code>$$
+\underset{q&gt;0}{\text{max}} [V(q)+\delta_t + V&#39;(q)]
+$$</code></pre>
+<p><span class="math display">\[
+\underset{q&gt;0}{\text{max}} [V(q)+\delta_t + V&#39;(q)]
+\]</span></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.0 (2020-04-24)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS  10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6    rprojroot_1.3-2 digest_0.6.25   later_1.0.0    
+ [5] R6_2.4.1        backports_1.1.6 git2r_0.27.1    magrittr_1.5   
+ [9] evaluate_0.14   stringi_1.4.6   rlang_0.4.6     fs_1.4.1       
+[13] promises_1.1.0  whisker_0.4     rmarkdown_2.6   tools_4.0.0    
+[17] stringr_1.4.0   glue_1.4.1      httpuv_1.5.2    xfun_0.19      
+[21] yaml_2.2.1      compiler_4.0.0  htmltools_0.5.0 knitr_1.28     </code></pre>
+</div>
 </div>
 
 
