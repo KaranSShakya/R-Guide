@@ -47,8 +47,6 @@ cancer.1 <- cancer_test %>%
 
 * **sandwitch** - robust standard errors
 
-
-
 ## Output Tables
 Here is a basic example of linear regression. Age and Weight of an individual is used to predict the blood pressure.
 ```{r eval=T, echo=T}
@@ -59,11 +57,11 @@ The function `summ` is good and direct in printing output. The base r `summary` 
 
 `summ` will be used mostly here when printing regression outputs.
 
-# Initial Statistics
+***
 
-## Correlation
+# Correlation
 
-### One Variable
+## One Variable
 
 Correlation is the strength of linear assosciation. It can be sensitive to outliers. The `pull` function is used to print out the correlation value more.
 ```{r eval=T, echo=T}
@@ -100,7 +98,7 @@ effect_plot(model, pred = age, interval = T, plot.points = T)
 remove(cor)
 ```
 
-### Multiple Variables
+## Multiple Variables
 Multiple variables can be tabulated against eachother to observe the correlation. In this example, `cancer diagnosis ~ income + age + private + public + per_white + per_black`
 ```{r eval=T, echo=F}
 cancer.2 <- cancer.1 %>% 
@@ -117,6 +115,8 @@ Viewing in diagrams:
 ```{r eval=T, echo=T}
 ggpairs(cancer.2)
 ```
+
+***
 
 # Understanding Linear Regression
 
@@ -162,8 +162,22 @@ remove(a,b,c)
 ```
 
 ## Covariance Matrix
+Covaraince matrix can be created using `vocv`.
+```{r eval=T, echo=T}
+vcov(lm.model)
+```
+
+***
 
 # Robust Standard Errors
+This requires the `sandwitch` package. There are many robust standard error (heteroskedasctic errors) parameters ranging from `HC0` to `HC5`. The default for STATA is **HC1** which is important to keep in mind if we are trying to emulate STATA result.
+```{r eval=T, echo=T}
+model <- lm(bloodp~age+weight, data=bloodp)
+summ(model, robust = "HC1")
+```
+
+
+***
 
 # Dummy Variables
 Group 1, Group 2, and Group 3 are all dummy variables (0 or 1). When regressors are dummy variables you need to regress it without the intercept term.
@@ -171,6 +185,14 @@ Group 1, Group 2, and Group 3 are all dummy variables (0 or 1). When regressors 
 reg <- lm(Earnings ~ -1+Group1+Group2+Group3, data=dummy)
 summ(reg)
 ```
+
+If we want to add the intercept term, one of the dummy variables needs to be removed to avoid collinearity with the intercept term.
+```{r eval=T, echo=T}
+reg2 <- lm(Earnings~Group1+Group2, data=dummy)
+summ(reg2)
+```
+
+***
 
 # Lagged Regression
 ```{r eval=T, echo=T}
@@ -188,10 +210,27 @@ reg <- lm(Income ~ Work+Work_1+Work_2, data=dataset)
 remove(lag, lag1)
 ```
 
+***
+
 # Hypothesis Testing
+
+## Confidence Interval
+There are two methods that can be used. The base r `confint` and `summ`. Both examples are below. The dummy variable regression result is used as example. 
+```{r eval=T, echo=F}
+summ(reg)
+```
+
+The `confint` method to find a 95% CI is,
+```{r eval=T, echo=T}
+confint(reg, level=0.95)
+```
+
+The `summ` method to find a 95% CI is,
+```{r eval=T, echo=T}
+summ(reg, confint = TRUE, ci.width = 0.95, digits = 3)
+```
 
 ## t-test b=0
 
-## Confidence Interval
-
+***
 
