@@ -9,10 +9,10 @@ navbar:
     href: dataset.html
   - text: Data Visualization
     href: visualization.html
-  - text: Latex
-    href: latex.html
   - text: Econometrics
     href: econometrics.html
+  - text: Latex
+    href: latex.html
   - text: GIT
     href: git.html
 output:

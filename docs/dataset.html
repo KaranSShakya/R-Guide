@@ -381,10 +381,10 @@ div.tocify {
   <a href="visualization.html">Data Visualization</a>
 </li>
 <li>
-  <a href="latex.html">Latex</a>
+  <a href="econometrics.html">Econometrics</a>
 </li>
 <li>
-  <a href="econometrics.html">Econometrics</a>
+  <a href="latex.html">Latex</a>
 </li>
 <li>
   <a href="git.html">GIT</a>
@@ -450,23 +450,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreec613064ae438800e5428153d1525bfbaf9de8b88targetblankc613064a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/c613064ae438800e5428153d1525bfbaf9de8b88" target="_blank">c613064</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree924d00b48d81d506165b27a23d6eba8456726979targetblank924d00ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/924d00b48d81d506165b27a23d6eba8456726979" target="_blank">924d00b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreec613064ae438800e5428153d1525bfbaf9de8b88targetblankc613064a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree924d00b48d81d506165b27a23d6eba8456726979targetblank924d00ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/c613064ae438800e5428153d1525bfbaf9de8b88" target="_blank">c613064</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/924d00b48d81d506165b27a23d6eba8456726979" target="_blank">924d00b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -477,15 +477,9 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  analysis/dataset.Rmd
-    Untracked:  analysis/econometrics.Rmd
-    Untracked:  analysis/latex.Rmd
-
 Unstaged changes:
     Modified:   analysis/_site.yml
-    Deleted:    analysis/home.Rmd
-    Modified:   analysis/index.Rmd
+    Modified:   analysis/dataset.Rmd
 
 </code></pre>
 <p>
@@ -498,15 +492,84 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/dataset.Rmd</code>) and HTML (<code>docs/dataset.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/924d00b48d81d506165b27a23d6eba8456726979/analysis/dataset.Rmd" target="_blank">924d00b</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-24
+</td>
+<td>
+Overall formatting + new sections
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/924d00b48d81d506165b27a23d6eba8456726979/docs/dataset.html" target="_blank">924d00b</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-24
+</td>
+<td>
+Overall formatting + new sections
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="na" class="section level2">
-<h2><span class="header-section-number">0.1</span> NA</h2>
+<div id="tidyverse" class="section level1">
+<h1><span class="header-section-number">1</span> Tidyverse</h1>
+<div id="mutate" class="section level2">
+<h2><span class="header-section-number">1.1</span> Mutate</h2>
+</div>
+</div>
+<div id="missing-data" class="section level1">
+<h1><span class="header-section-number">2</span> Missing Data</h1>
+</div>
+<div id="widelong" class="section level1">
+<h1><span class="header-section-number">3</span> Wide/Long</h1>
 </div>
 
 
