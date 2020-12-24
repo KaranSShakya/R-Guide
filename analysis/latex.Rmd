@@ -114,7 +114,7 @@ $$
 $$
 ```
 $$
-\underset{q>0}{\text{max}} [V(q)+\delta_t + V'(q)]
+\underset{q>0}{\text{max}} \{V(q)+\delta_t + V'(q)\}
 $$
 
 

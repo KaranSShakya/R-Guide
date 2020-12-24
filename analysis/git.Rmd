@@ -1,6 +1,31 @@
 ---
 title: "GIT"
 site: workflowr::wflow_site
-output:  
-  html_document
+output:
+  workflowr::wflow_html:
+    toc: false
+    number_sections: false
 ---
+
+# Connecting R-Studio to GIT 
+
+* Create a repository at GIT. Click on 'Clone or Download' and copy the link.
+
+* Create a new project on R-Studio through **Version Control**. Click on 'GIT' and paste the link. You do not need to create a seperate folder. 
+
+**workflowr** needs to be installed through the console.
+```{r eval=F, echo=T}
+library(workflowr)
+```
+
+Register your personal information. Sometimes this is not required if R already saved your information
+```{r eval=F, echo=T}
+wflow_git_commit(user.name="KaranSShakya", user.email="email.gmail.com")
+```
+
+This code builds the workflowr folder in your existing folder or directory.
+```{r eval=F, echo=T}
+wflow_start("~/Desktop/working-directory", existing = TRUE)
+```
+
+***
