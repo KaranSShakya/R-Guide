@@ -1,13 +1,10 @@
 ---
 title: "GIT"
 site: workflowr::wflow_site
-output:
-  workflowr::wflow_html:
-    toc: false
-    number_sections: false
+output:  
+  html_document
 ---
 
-# Connecting R-Studio to GIT 
 
 * Create a repository at GIT. Click on 'Clone or Download' and copy the link.
 
