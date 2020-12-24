@@ -5,10 +5,16 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+  - text: Dataset Manipulation
+    href: dataset.html
+  - text: Data Visualization
+    href: visualization.html
+  - text: Latex
+    href: latex.html
+  - text: Econometrics
+    href: econometrics.html
+  - text: GIT
+    href: git.html
 output:
   workflowr::wflow_html:
     number_sections: true

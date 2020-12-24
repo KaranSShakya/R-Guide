@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Applied Econometrics</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R-Guide</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Applied Econometrics</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-12-24
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>R-Guide/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20201221code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20201221)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20201221code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20201221)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreec613064ae438800e5428153d1525bfbaf9de8b88targetblankc613064a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/c613064ae438800e5428153d1525bfbaf9de8b88" target="_blank">c613064</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreec613064ae438800e5428153d1525bfbaf9de8b88targetblankc613064a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/c613064ae438800e5428153d1525bfbaf9de8b88" target="_blank">c613064</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  analysis/econometrics.Rmd
+
+Unstaged changes:
+    Deleted:    analysis/home.Rmd
+    Modified:   analysis/index.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="setting-up" class="section level1">
+<h1><span class="header-section-number">1</span> Setting Up</h1>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">1.1</span> Packages</h2>
+<ul>
+<li><p><strong>tidyverse</strong> - basic package for data wrangling</p></li>
+<li><p><strong>readxl</strong> - allows inputs of excel files</p></li>
+<li><p><strong>readr</strong> - allows inputs of text files</p></li>
+<li><p><strong>jtools</strong> - <code>summ</code> functions for better regression outputs</p></li>
+<li><p><strong>broom</strong> - result organization with tidy tibbles</p></li>
+<li><p><strong>stargazer</strong> - better organized regression outputs</p></li>
+<li><p><strong>sandwitch</strong> - robust standard errors</p></li>
+</ul>
+</div>
+<div id="output-tables" class="section level2">
+<h2><span class="header-section-number">1.2</span> Output Tables</h2>
+<p>Here is a basic example of linear regression. Age and Weight of an individual is used to predict the blood pressure.</p>
+<pre class="r"><code>model &lt;- lm(bloodp~age+weight, data=bloodp)
+summ(model)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 11
+Dependent Variable: bloodp
+Type: OLS linear regression 
+
+MODEL FIT:
+F(2,8) = 168.76, p = 0.00
+R² = 0.98
+Adj. R² = 0.97 
+
+Standard errors: OLS
+-------------------------------------------------
+                     Est.    S.E.   t val.      p
+----------------- ------- ------- -------- ------
+(Intercept)         30.99   11.94     2.59   0.03
+age                  0.86    0.25     3.47   0.01
+weight               0.33    0.13     2.56   0.03
+-------------------------------------------------</code></pre>
+<p>The function <code>summ</code> is good and direct in printing output. The base r <code>summary</code> is okay to use, and the more intricate <code>stargazer</code> is good too.</p>
+<p><code>summ</code> will be used mostly here when printing regression outputs.</p>
+<hr />
+</div>
+</div>
+<div id="correlation" class="section level1">
+<h1><span class="header-section-number">2</span> Correlation</h1>
+<div id="one-variable" class="section level2">
+<h2><span class="header-section-number">2.1</span> One Variable</h2>
+<p>Correlation is the strength of linear assosciation. It can be sensitive to outliers. The <code>pull</code> function is used to print out the correlation value more.</p>
+<pre class="r"><code>cor &lt;- corr_1 %&gt;% 
+  summarise(r=cor(X, Y)) %&gt;% 
+  pull(r)
+cor</code></pre>
+<pre><code>[1] 0.8351438</code></pre>
+<p>Observing correlation from regression. Sqrt of R^2 is correlation.</p>
+<pre class="r"><code>cor.lm &lt;- lm(Y~X, data=corr_1)
+summ(cor.lm)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 15
+Dependent Variable: Y
+Type: OLS linear regression 
+
+MODEL FIT:
+F(1,13) = 29.97, p = 0.00
+R² = 0.70
+Adj. R² = 0.67 
+
+Standard errors: OLS
+-------------------------------------------------
+                     Est.    S.E.   t val.      p
+----------------- ------- ------- -------- ------
+(Intercept)         25.23   10.06     2.51   0.03
+X                    3.29    0.60     5.47   0.00
+-------------------------------------------------</code></pre>
+<p>Or using base r function <code>cor</code>:</p>
+<pre class="r"><code>cor.2 &lt;- cor(corr_1)
+cor.2</code></pre>
+<pre><code>          X         Y
+X 1.0000000 0.8351438
+Y 0.8351438 1.0000000</code></pre>
+<p>Correlations can also be visualized through scatterplots which important to any econometric analysis. Method = “lm” produces the blue linear regression line.</p>
+<pre class="r"><code>ggplot(corr_1, aes(x=X, y=Y))+
+  geom_point(alpha=0.5)+
+  geom_smooth(method = &quot;lm&quot;, se=F)</code></pre>
+<p><img src="figure/econometrics.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Or, you can use the effects plot. This is an example of the blood pressure model.</p>
+<pre class="r"><code>effect_plot(model, pred = age, interval = T, plot.points = T)</code></pre>
+<p><img src="figure/econometrics.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="multiple-variables" class="section level2">
+<h2><span class="header-section-number">2.2</span> Multiple Variables</h2>
+<p>Multiple variables can be tabulated against eachother to observe the correlation. In this example, <code>cancer diagnosis ~ income + age + private + public + per_white + per_black</code></p>
+<p>Viewing correlation table:</p>
+<pre class="r"><code>cor.cancer &lt;- cor(cancer.2)
+cor.cancer</code></pre>
+<pre><code>                 Cancer_Diagnosis Median_Income   Median_Age Private_Coverage
+Cancer_Diagnosis      1.000000000  -0.001036186  0.018089172      0.105174269
+Median_Income        -0.001036186   1.000000000 -0.013287743      0.724174768
+Median_Age            0.018089172  -0.013287743  1.000000000      0.004665111
+Private_Coverage      0.105174269   0.724174768  0.004665111      1.000000000
+Public_Coverage       0.046108610  -0.754821751  0.049060211     -0.720011521
+Percent_White        -0.014509829   0.167225441  0.035009366      0.429031447
+Percent_Black         0.113488959  -0.270231619 -0.017173240     -0.345172126
+                 Public_Coverage Percent_White Percent_Black
+Cancer_Diagnosis      0.04610861   -0.01450983    0.11348896
+Median_Income        -0.75482175    0.16722544   -0.27023162
+Median_Age            0.04906021    0.03500937   -0.01717324
+Private_Coverage     -0.72001152    0.42903145   -0.34517213
+Public_Coverage       1.00000000   -0.13370507    0.19559747
+Percent_White        -0.13370507    1.00000000   -0.82845885
+Percent_Black         0.19559747   -0.82845885    1.00000000</code></pre>
+<p>Viewing in diagrams:</p>
+<pre class="r"><code>ggpairs(cancer.2)</code></pre>
+<p><img src="figure/econometrics.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+</div>
+<div id="understanding-linear-regression" class="section level1">
+<h1><span class="header-section-number">3</span> Understanding Linear Regression</h1>
+<p><code>cancer diagnosis ~ income + age + private + public + per_white + per_black</code> model is used in the following examples.</p>
+<pre class="r"><code>lm.model &lt;- lm(Cancer_Diagnosis~Median_Income+Median_Age+Private_Coverage+Public_Coverage+Percent_White+Percent_Black, data=cancer.2)
+summ(lm.model)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 3047
+Dependent Variable: Cancer_Diagnosis
+Type: OLS linear regression 
+
+MODEL FIT:
+F(6,3040) = 40.40, p = 0.00
+R² = 0.07
+Adj. R² = 0.07 
+
+Standard errors: OLS
+-------------------------------------------------------
+                           Est.    S.E.   t val.      p
+---------------------- -------- ------- -------- ------
+(Intercept)              245.57   16.73    14.68   0.00
+Median_Income             -0.00    0.00    -0.25   0.80
+Median_Age                 0.01    0.02     0.33   0.74
+Private_Coverage           1.75    0.17    10.36   0.00
+Public_Coverage            1.73    0.21     8.40   0.00
+Percent_White              0.24    0.12     2.01   0.04
+Percent_Black              0.91    0.13     7.16   0.00
+-------------------------------------------------------</code></pre>
+<p>To visualize the residual table we use the function <code>augment</code>.</p>
+<pre class="r"><code>lm.res &lt;- augment(lm.model) </code></pre>
+<div id="least-square-lines" class="section level2">
+<h2><span class="header-section-number">3.1</span> Least Square Lines</h2>
+</div>
+<div id="visualizing-assumptions" class="section level2">
+<h2><span class="header-section-number">3.2</span> Visualizing Assumptions</h2>
+<p><strong>a.</strong> Linearity (scatterplot + residual plot - residuals needs to be random)</p>
+<p><strong>b.</strong> Nearly normal residuals (histogram of residuals or QQ residual plot)</p>
+<p><strong>c.</strong> Constant variability (residual plot)</p>
+<p><a href="https://gallery.shinyapps.io/slr_diag/">Link</a> for interactive regression diagnostic test.</p>
+<pre class="r"><code>a &lt;- ggplot(lm.res, aes(x=.fitted, y=.resid))+
+  geom_point()+
+  geom_hline(yintercept = 0, linetype=&quot;dashed&quot;, color=&quot;red&quot;)+
+  labs(title=&quot;Residuals vs Fitted Values&quot;, x=&quot;Fitted Values&quot;, y=&quot;Residuals&quot;)
+b &lt;- ggplot(lm.res, aes(x=.resid))+
+  geom_density()+
+  labs(title=&quot;Histogram of residuals&quot;, x=&quot;Residuals&quot;) #geom_density can also be added
+c &lt;- ggplot(lm.res, aes(sample=.resid))+
+  stat_qq()+
+  stat_qq_line()</code></pre>
+<p><img src="figure/econometrics.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="covariance-matrix" class="section level2">
+<h2><span class="header-section-number">3.3</span> Covariance Matrix</h2>
+<p>Covaraince matrix can be created using <code>vocv</code>.</p>
+<pre class="r"><code>vcov(lm.model)</code></pre>
+<pre><code>                   (Intercept) Median_Income    Median_Age Private_Coverage
+(Intercept)      279.895460469 -1.117642e-03  3.524437e-03    -9.377888e-01
+Median_Income     -0.001117642  1.921940e-08 -5.465260e-08    -1.062539e-05
+Median_Age         0.003524437 -5.465260e-08  4.446881e-04    -9.975174e-05
+Private_Coverage  -0.937788802 -1.062539e-05 -9.975174e-05     2.851442e-02
+Public_Coverage   -2.612435764  1.144682e-05 -2.902941e-04     1.503650e-02
+Percent_White     -0.751040921  5.216770e-06 -4.661584e-05    -1.049701e-02
+Percent_Black     -0.951741623  5.275435e-06 -2.654088e-05    -6.561322e-03
+                 Public_Coverage Percent_White Percent_Black
+(Intercept)        -2.612436e+00 -7.510409e-01 -9.517416e-01
+Median_Income       1.144682e-05  5.216770e-06  5.275435e-06
+Median_Age         -2.902941e-04 -4.661584e-05 -2.654088e-05
+Private_Coverage    1.503650e-02 -1.049701e-02 -6.561322e-03
+Public_Coverage     4.239607e-02 -4.719157e-03 -2.531219e-03
+Percent_White      -4.719157e-03  1.479425e-02  1.282179e-02
+Percent_Black      -2.531219e-03  1.282179e-02  1.605172e-02</code></pre>
+<hr />
+</div>
+</div>
+<div id="robust-standard-errors" class="section level1">
+<h1><span class="header-section-number">4</span> Robust Standard Errors</h1>
+<p>This requires the <code>sandwitch</code> package. There are many robust standard error (heteroskedasctic errors) parameters ranging from <code>HC0</code> to <code>HC5</code>. The default for STATA is <strong>HC1</strong> which is important to keep in mind if we are trying to emulate STATA result.</p>
+<pre class="r"><code>model &lt;- lm(bloodp~age+weight, data=bloodp)
+summ(model, robust = &quot;HC1&quot;)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 11
+Dependent Variable: bloodp
+Type: OLS linear regression 
+
+MODEL FIT:
+F(2,8) = 168.76, p = 0.00
+R² = 0.98
+Adj. R² = 0.97 
+
+Standard errors: Robust, type = HC1
+-------------------------------------------------
+                     Est.    S.E.   t val.      p
+----------------- ------- ------- -------- ------
+(Intercept)         30.99   10.60     2.92   0.02
+age                  0.86    0.30     2.92   0.02
+weight               0.33    0.14     2.33   0.05
+-------------------------------------------------</code></pre>
+<hr />
+</div>
+<div id="dummy-variables" class="section level1">
+<h1><span class="header-section-number">5</span> Dummy Variables</h1>
+<p>Group 1, Group 2, and Group 3 are all dummy variables (0 or 1). When regressors are dummy variables you need to regress it without the intercept term.</p>
+<pre class="r"><code>reg &lt;- lm(Earnings ~ -1+Group1+Group2+Group3, data=dummy)
+summ(reg)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 4266
+Dependent Variable: Earnings
+Type: OLS linear regression 
+
+MODEL FIT:
+F(3,4263) = 3842.49, p = 0.00
+R² = 0.73
+Adj. R² = 0.73 
+
+Standard errors: OLS
+------------------------------------------------
+                   Est.     S.E.   t val.      p
+------------ ---------- -------- -------- ------
+Group1         22880.48   467.45    48.95   0.00
+Group2         25080.17   380.02    66.00   0.00
+Group3         27973.63   404.78    69.11   0.00
+------------------------------------------------</code></pre>
+<p>If we want to add the intercept term, one of the dummy variables needs to be removed to avoid collinearity with the intercept term.</p>
+<pre class="r"><code>reg2 &lt;- lm(Earnings~Group1+Group2, data=dummy)
+summ(reg2)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 4266
+Dependent Variable: Earnings
+Type: OLS linear regression 
+
+MODEL FIT:
+F(2,4263) = 34.98, p = 0.00
+R² = 0.02
+Adj. R² = 0.02 
+
+Standard errors: OLS
+-----------------------------------------------------
+                        Est.     S.E.   t val.      p
+----------------- ---------- -------- -------- ------
+(Intercept)         27973.63   404.78    69.11   0.00
+Group1              -5093.16   618.35    -8.24   0.00
+Group2              -2893.46   555.21    -5.21   0.00
+-----------------------------------------------------</code></pre>
+<hr />
+</div>
+<div id="lagged-regression" class="section level1">
+<h1><span class="header-section-number">6</span> Lagged Regression</h1>
+<pre class="r"><code>lag1 &lt;- lag %&gt;% 
+  mutate(Work_1 = lag(Work, 1)) %&gt;% 
+  mutate(Work_2 = lag(Work, 2))
+kable(head(lag1))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Year</th>
+<th align="right">Income</th>
+<th align="right">Work</th>
+<th align="right">Work_1</th>
+<th align="right">Work_2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2000</td>
+<td align="right">55</td>
+<td align="right">30</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="right">2001</td>
+<td align="right">60</td>
+<td align="right">31</td>
+<td align="right">30</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">2002</td>
+<td align="right">65</td>
+<td align="right">32</td>
+<td align="right">31</td>
+<td align="right">30</td>
+</tr>
+<tr class="even">
+<td align="right">2003</td>
+<td align="right">70</td>
+<td align="right">33</td>
+<td align="right">32</td>
+<td align="right">31</td>
+</tr>
+<tr class="odd">
+<td align="right">2004</td>
+<td align="right">75</td>
+<td align="right">34</td>
+<td align="right">33</td>
+<td align="right">32</td>
+</tr>
+<tr class="even">
+<td align="right">2005</td>
+<td align="right">80</td>
+<td align="right">35</td>
+<td align="right">34</td>
+<td align="right">33</td>
+</tr>
+</tbody>
+</table>
+<p>Using this we can perform linear regression the normal way:</p>
+<pre class="r"><code>reg &lt;- lm(Income ~ Work+Work_1+Work_2, data=dataset)</code></pre>
+<hr />
+</div>
+<div id="hypothesis-testing" class="section level1">
+<h1><span class="header-section-number">7</span> Hypothesis Testing</h1>
+<div id="confidence-interval" class="section level2">
+<h2><span class="header-section-number">7.1</span> Confidence Interval</h2>
+<p>There are two methods that can be used. The base r <code>confint</code> and <code>summ</code>. Both examples are below. The dummy variable regression result is used as example.</p>
+<pre><code>MODEL INFO:
+Observations: 4266
+Dependent Variable: Earnings
+Type: OLS linear regression 
+
+MODEL FIT:
+F(3,4263) = 3842.49, p = 0.00
+R² = 0.73
+Adj. R² = 0.73 
+
+Standard errors: OLS
+------------------------------------------------
+                   Est.     S.E.   t val.      p
+------------ ---------- -------- -------- ------
+Group1         22880.48   467.45    48.95   0.00
+Group2         25080.17   380.02    66.00   0.00
+Group3         27973.63   404.78    69.11   0.00
+------------------------------------------------</code></pre>
+<p>The <code>confint</code> method to find a 95% CI is,</p>
+<pre class="r"><code>confint(reg, level=0.95)</code></pre>
+<pre><code>          2.5 %   97.5 %
+Group1 21964.03 23796.92
+Group2 24335.14 25825.21
+Group3 27180.06 28767.21</code></pre>
+<p>The <code>summ</code> method to find a 95% CI is,</p>
+<pre class="r"><code>summ(reg, confint = TRUE, ci.width = 0.95, digits = 3)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 4266
+Dependent Variable: Earnings
+Type: OLS linear regression 
+
+MODEL FIT:
+F(3,4263) = 3842.486, p = 0.000
+R² = 0.730
+Adj. R² = 0.730 
+
+Standard errors: OLS
+-----------------------------------------------------------------
+                    Est.        2.5%       97.5%   t val.       p
+------------ ----------- ----------- ----------- -------- -------
+Group1         22880.476   21964.029   23796.922   48.947   0.000
+Group2         25080.174   24335.139   25825.209   65.997   0.000
+Group3         27973.635   27180.058   28767.211   69.109   0.000
+-----------------------------------------------------------------</code></pre>
+</div>
+<div id="t-test-b0" class="section level2">
+<h2><span class="header-section-number">7.2</span> t-test b=0</h2>
+<hr />
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.0 (2020-04-24)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS  10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] gridExtra_2.3   GGally_2.0.0    jtools_2.1.1    stargazer_5.2.2
+ [5] broom_0.5.6     readxl_1.3.1    forcats_0.5.0   stringr_1.4.0  
+ [9] dplyr_0.8.5     purrr_0.3.4     readr_1.3.1     tidyr_1.0.3    
+[13] tibble_3.0.1    ggplot2_3.3.0   tidyverse_1.3.0 knitr_1.28     
+[17] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6       lubridate_1.7.8    lattice_0.20-41    zoo_1.8-8         
+ [5] assertthat_0.2.1   rprojroot_1.3-2    digest_0.6.25      R6_2.4.1          
+ [9] cellranger_1.1.0   plyr_1.8.6         backports_1.1.6    reprex_0.3.0      
+[13] evaluate_0.14      highr_0.8          httr_1.4.1         pillar_1.4.4      
+[17] rlang_0.4.6        rstudioapi_0.11    Matrix_1.2-18      rmarkdown_2.6     
+[21] labeling_0.3       splines_4.0.0      pander_0.6.3       munsell_0.5.0     
+[25] compiler_4.0.0     httpuv_1.5.2       modelr_0.1.7       xfun_0.19         
+[29] pkgconfig_2.0.3    mgcv_1.8-31        htmltools_0.5.0    tidyselect_1.1.0  
+[33] reshape_0.8.8      fansi_0.4.1        crayon_1.3.4       dbplyr_1.4.3      
+[37] withr_2.2.0        later_1.0.0        grid_4.0.0         nlme_3.1-147      
+[41] jsonlite_1.6.1     gtable_0.3.0       lifecycle_0.2.0    DBI_1.1.0         
+[45] git2r_0.27.1       magrittr_1.5       scales_1.1.1       cli_2.0.2         
+[49] stringi_1.4.6      farver_2.0.3       fs_1.4.1           promises_1.1.0    
+[53] xml2_1.3.2         ellipsis_0.3.0     generics_0.0.2     vctrs_0.3.0       
+[57] sandwich_3.0-0     RColorBrewer_1.1-2 tools_4.0.0        glue_1.4.1        
+[61] hms_0.5.3          yaml_2.2.1         colorspace_1.4-1   rvest_0.3.5       
+[65] haven_2.2.0       </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

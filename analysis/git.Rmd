@@ -1,0 +1,6 @@
+---
+title: "GIT"
+site: workflowr::wflow_site
+output:  
+  html_document
+---

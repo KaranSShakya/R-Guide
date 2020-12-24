@@ -1,0 +1,6 @@
+---
+title: "Data Visualization"
+site: workflowr::wflow_site
+output:  
+  html_document
+---
