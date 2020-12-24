@@ -1,5 +1,5 @@
 ---
-title: "Applied Econometrics"
+title: "Latex"
 site: workflowr::wflow_site
 output:  
   html_document
