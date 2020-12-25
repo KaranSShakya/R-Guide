@@ -16,6 +16,7 @@ library(jtools)
 
 library(GGally)
 library(gridExtra)
+library(AER)
 ```
 
 ```{r eval=T, echo=F, warning=F}
@@ -133,8 +134,69 @@ lm.res <- augment(lm.model)
 ```
 
 ## Least Square Lines
+The least square estimator is:
+$$
+\sum_{i=1}^{n} (Y_i-\beta_0-\beta_1 X_i)^2
+$$
+The estimators can be calculated as follows:
+$$
+\begin{align}
+\beta_1 &= \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i-\bar{Y})}{\sum_{i=1}^{n}(X_1-\bar{X})^2}\\
+\\
+\beta_0 &= \bar{Y} - \hat{\beta_1} \bar{X}
+\end{align}
+$$
+We can manually do these calculations. To do these we use the package `AER` and load the `CASchool` dataset.
+```{r eval=T, echo=F}
+data("CASchools")
+ca.data <- CASchools %>% 
+  mutate(Score = read+math) %>% 
+  mutate(Str = students/teachers)
+remove(CASchools)
+```
 
-## Visualizing Assumptions 
+Lets conduct a simple linear regression `score ~ STR` (STR = student teacher ratio).
+```{r eval=T, echo=T}
+ca.model <- lm(Score~Str, data=ca.data)
+summ(ca.model)
+```
+
+Manually computing the estimators.
+```{r eval=T, echo=T}
+attach(ca.data)
+beta_1 <- sum((Str-mean(Str))*(Score-mean(Score))) / sum((Str-mean(Str))^2)
+beta_1 
+beta_0 <- mean(Score) - beta_1*mean(Str)
+beta_0
+```
+
+## Goodness of Fit
+We need to understand: Explained Sum of Squares (**ESS**), Total Sum of Squares (**TSS**), and Sum of Square Residuals (**SSR**).
+$$
+\begin{align}
+ESS &= \sum_{i=1}^{n} (\hat{Y_i}-\bar{Y})^2\\
+TSS &= \sum_{i=1}^{n} (Y_i - \bar{Y})^2\\
+R^2 &= \frac{ESS}{TSS}
+\\ \\
+SSR &= \sum_{i=1}^{n} \hat{u_i}^2\\
+TSS &= ESS + SSR\\
+R^2 &= 1-\frac{SSR}{TSS}
+
+\end{align}
+$$
+We can calculate the Standard Error of Regression (**SER**) as $s^2=\frac{SSR}{n-2}$
+
+Computing these goodness of fit values manually.
+```{r eval=T, echo=T}
+ca.summary <- summary(ca.model)
+SSR <- sum(ca.summary$residuals^2)
+TSS <- sum((Score-mean(Score))^2)
+R_sq <- 1 - SSR/TSS
+R_sq
+```
+
+
+## Least Square Assumptions 
 
 **a.** Linearity (scatterplot + residual plot - residuals needs to be random)
 
