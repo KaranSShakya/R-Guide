@@ -30,7 +30,9 @@ dummy <- read_excel("data/dummy.xlsx")
 cancer.1 <- cancer_test %>% 
   select(-7,-11,)
 ```
-
+```{r eval=T, echo=F}
+remove(cancer_test)
+```
 # Setting Up
 
 ## Packages 
@@ -96,7 +98,7 @@ Or, you can use the effects plot. This is an example of the blood pressure model
 effect_plot(model, pred = age, interval = T, plot.points = T)
 ```
 ```{r eval=T, echo=F}
-remove(cor)
+remove(cor, cor.2, cor.lm)
 ```
 
 ## Multiple Variables
@@ -116,7 +118,9 @@ Viewing in diagrams:
 ```{r eval=T, echo=T}
 ggpairs(cancer.2)
 ```
-
+```{r eval=T, echo=F}
+remove(cor.cancer)
+```
 ***
 
 # Understanding Linear Regression
@@ -146,11 +150,12 @@ $$
 \beta_0 &= \bar{Y} - \hat{\beta_1} \bar{X}
 \end{align}
 $$
+
 We can manually do these calculations. To do these we use the package `AER` and load the `CASchool` dataset.
 ```{r eval=T, echo=F}
 data("CASchools")
 ca.data <- CASchools %>% 
-  mutate(Score = read+math) %>% 
+  mutate(Score = (read+math)/2) %>% 
   mutate(Str = students/teachers)
 remove(CASchools)
 ```
@@ -169,7 +174,9 @@ beta_1
 beta_0 <- mean(Score) - beta_1*mean(Str)
 beta_0
 ```
-
+```{r eval=T, echo=F}
+remove(beta_0, beta_1)
+```
 ## Goodness of Fit
 We need to understand: Explained Sum of Squares (**ESS**), Total Sum of Squares (**TSS**), and Sum of Square Residuals (**SSR**).
 $$
@@ -195,7 +202,9 @@ R_sq <- 1 - SSR/TSS
 R_sq
 detach(ca.data)
 ```
-
+```{r eval=T, echo=F}
+remove(R_sq, SSR, TSS)
+```
 
 ## Least Square Assumptions 
 
@@ -225,25 +234,33 @@ remove(a,b,c)
 ```
 
 ## Covariance Matrix
+
 Covaraince matrix can be created using `vocv`.
 ```{r eval=T, echo=T}
 vcov(lm.model)
 ```
 
-***
+```{r eval=T, echo=F}
+remove(lm.model, lm.res)
+```
+
 
 # Robust Standard Errors
 This requires the `sandwitch` package. There are many robust standard error (heteroskedasctic errors) parameters ranging from `HC0` to `HC5`. The default for STATA is **HC1** which is important to keep in mind if we are trying to emulate STATA result.
+
 ```{r eval=T, echo=T}
 model <- lm(bloodp~age+weight, data=bloodp)
 summ(model, robust = "HC1")
 ```
-
+```{r eval=T, echo=F}
+remove(model)
+```
 
 ***
 
 # Dummy Variables
 Group 1, Group 2, and Group 3 are all dummy variables (0 or 1). When regressors are dummy variables you need to regress it without the intercept term.
+
 ```{r eval=T, echo=T}
 reg <- lm(Earnings ~ -1+Group1+Group2+Group3, data=dummy)
 summ(reg)
@@ -254,10 +271,14 @@ If we want to add the intercept term, one of the dummy variables needs to be rem
 reg2 <- lm(Earnings~Group1+Group2, data=dummy)
 summ(reg2)
 ```
+```{r eval=T, echo=F}
+remove(reg2)
+```
 
 ***
 
 # Lagged Regression
+
 ```{r eval=T, echo=T}
 lag1 <- lag %>% 
   mutate(Work_1 = lag(Work, 1)) %>% 
@@ -267,10 +288,10 @@ kable(head(lag1))
 
 Using this we can perform linear regression the normal way:
 ```{r eval=F, echo=T}
-reg <- lm(Income ~ Work+Work_1+Work_2, data=dataset)
+reg.lag <- lm(Income ~ Work+Work_1+Work_2, data=dataset)
 ```
 ```{r eval=T, echo=F}
-remove(lag, lag1)
+remove(reg.lag, lag, lag1)
 ```
 
 ***

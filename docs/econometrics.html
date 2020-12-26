@@ -517,16 +517,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreee02be09f307dfc3889a876b0fe4b9adc9101f2e5targetblanke02be09a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/e02be09f307dfc3889a876b0fe4b9adc9101f2e5" target="_blank">e02be09</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree1242c7c8207d26dfba33a70c2f99acdfbc792a78targetblank1242c7ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/1242c7c8207d26dfba33a70c2f99acdfbc792a78" target="_blank">1242c7c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreee02be09f307dfc3889a876b0fe4b9adc9101f2e5targetblanke02be09a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree1242c7c8207d26dfba33a70c2f99acdfbc792a78targetblank1242c7ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/e02be09f307dfc3889a876b0fe4b9adc9101f2e5" target="_blank">e02be09</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/1242c7c8207d26dfba33a70c2f99acdfbc792a78" target="_blank">1242c7c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -536,6 +536,9 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  analysis/figure/
 
 Unstaged changes:
     Modified:   analysis/dataset.Rmd
@@ -578,6 +581,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/1242c7c8207d26dfba33a70c2f99acdfbc792a78/analysis/econometrics.Rmd" target="_blank">1242c7c</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+<td>
+Data distribution
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/1242c7c8207d26dfba33a70c2f99acdfbc792a78/docs/econometrics.html" target="_blank">1242c7c</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+<td>
+Data distribution
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -752,46 +789,6 @@ Y 0.8351438 1.0000000</code></pre>
 <pre class="r"><code>ggplot(corr_1, aes(x=X, y=Y))+
   geom_point(alpha=0.5)+
   geom_smooth(method = &quot;lm&quot;, se=F)</code></pre>
-<p><img src="figure/econometrics.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
-Past versions of unnamed-chunk-7-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-7-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/KaranSShakya/R-Guide/blob/924d00b48d81d506165b27a23d6eba8456726979/docs/figure/econometrics.Rmd/unnamed-chunk-7-1.png" target="_blank">924d00b</a>
-</td>
-<td>
-KaranSShakya
-</td>
-<td>
-2020-12-24
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Or, you can use the effects plot. This is an example of the blood pressure model.</p>
-<pre class="r"><code>effect_plot(model, pred = age, interval = T, plot.points = T)</code></pre>
 <p><img src="figure/econometrics.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
@@ -830,6 +827,9 @@ KaranSShakya
 </table>
 </div>
 </div>
+<p>Or, you can use the effects plot. This is an example of the blood pressure model.</p>
+<pre class="r"><code>effect_plot(model, pred = age, interval = T, plot.points = T)</code></pre>
+<p><img src="figure/econometrics.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="multiple-variables" class="section level2">
 <h2><span class="header-section-number">2.2</span> Multiple Variables</h2>
@@ -855,44 +855,7 @@ Percent_White        -0.13370507    1.00000000   -0.82845885
 Percent_Black         0.19559747   -0.82845885    1.00000000</code></pre>
 <p>Viewing in diagrams:</p>
 <pre class="r"><code>ggpairs(cancer.2)</code></pre>
-<p><img src="figure/econometrics.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
-Past versions of unnamed-chunk-12-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-12-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/KaranSShakya/R-Guide/blob/924d00b48d81d506165b27a23d6eba8456726979/docs/figure/econometrics.Rmd/unnamed-chunk-12-1.png" target="_blank">924d00b</a>
-</td>
-<td>
-KaranSShakya
-</td>
-<td>
-2020-12-24
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/econometrics.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>
@@ -935,7 +898,8 @@ Percent_Black              0.91    0.13     7.16   0.00
 \\
 \beta_0 &amp;= \bar{Y} - \hat{\beta_1} \bar{X}
 \end{align}
-\]</span> We can manually do these calculations. To do these we use the package <code>AER</code> and load the <code>CASchool</code> dataset.</p>
+\]</span></p>
+<p>We can manually do these calculations. To do these we use the package <code>AER</code> and load the <code>CASchool</code> dataset.</p>
 <p>Lets conduct a simple linear regression <code>score ~ STR</code> (STR = student teacher ratio).</p>
 <pre class="r"><code>ca.model &lt;- lm(Score~Str, data=ca.data)
 summ(ca.model)</code></pre>
@@ -950,20 +914,20 @@ R² = 0.05
 Adj. R² = 0.05 
 
 Standard errors: OLS
----------------------------------------------------
-                       Est.    S.E.   t val.      p
------------------ --------- ------- -------- ------
-(Intercept)         1397.87   18.93    73.82   0.00
-Str                   -4.56    0.96    -4.75   0.00
----------------------------------------------------</code></pre>
+-------------------------------------------------
+                      Est.   S.E.   t val.      p
+----------------- -------- ------ -------- ------
+(Intercept)         698.93   9.47    73.82   0.00
+Str                  -2.28   0.48    -4.75   0.00
+-------------------------------------------------</code></pre>
 <p>Manually computing the estimators.</p>
 <pre class="r"><code>attach(ca.data)
 beta_1 &lt;- sum((Str-mean(Str))*(Score-mean(Score))) / sum((Str-mean(Str))^2)
 beta_1 </code></pre>
-<pre><code>[1] -4.559616</code></pre>
+<pre><code>[1] -2.279808</code></pre>
 <pre class="r"><code>beta_0 &lt;- mean(Score) - beta_1*mean(Str)
 beta_0</code></pre>
-<pre><code>[1] 1397.866</code></pre>
+<pre><code>[1] 698.9329</code></pre>
 </div>
 <div id="goodness-of-fit" class="section level2">
 <h2><span class="header-section-number">3.2</span> Goodness of Fit</h2>
@@ -1002,44 +966,7 @@ b &lt;- ggplot(lm.res, aes(x=.resid))+
 c &lt;- ggplot(lm.res, aes(sample=.resid))+
   stat_qq()+
   stat_qq_line()</code></pre>
-<p><img src="figure/econometrics.Rmd/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-20-1">
-Past versions of unnamed-chunk-20-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-20-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/KaranSShakya/R-Guide/blob/07e9daf7c04ce1f587d104ad7ba0db34ff73f0c6/docs/figure/econometrics.Rmd/unnamed-chunk-20-1.png" target="_blank">07e9daf</a>
-</td>
-<td>
-KaranSShakya
-</td>
-<td>
-2020-12-25
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/econometrics.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="covariance-matrix" class="section level2">
 <h2><span class="header-section-number">3.4</span> Covariance Matrix</h2>
@@ -1061,7 +988,6 @@ Private_Coverage    1.503650e-02 -1.049701e-02 -6.561322e-03
 Public_Coverage     4.239607e-02 -4.719157e-03 -2.531219e-03
 Percent_White      -4.719157e-03  1.479425e-02  1.282179e-02
 Percent_Black      -2.531219e-03  1.282179e-02  1.605172e-02</code></pre>
-<hr />
 </div>
 </div>
 <div id="robust-standard-errors" class="section level1">
@@ -1197,7 +1123,8 @@ kable(head(lag1))</code></pre>
 </tbody>
 </table>
 <p>Using this we can perform linear regression the normal way:</p>
-<pre class="r"><code>reg &lt;- lm(Income ~ Work+Work_1+Work_2, data=dataset)</code></pre>
+<pre class="r"><code>reg.lag &lt;- lm(Income ~ Work+Work_1+Work_2, data=dataset)</code></pre>
+<pre><code>Warning in remove(reg.lag, lag, lag1): object &#39;reg.lag&#39; not found</code></pre>
 <hr />
 </div>
 <div id="hypothesis-testing" class="section level1">

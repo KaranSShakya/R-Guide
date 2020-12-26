@@ -62,6 +62,9 @@ ggplot(unif)+
   geom_density(aes(x=unif.1), color="blue")+
   geom_density(aes(x=unif.2), color="darkgreen")
 ```
+```{r eval=T, echo=F}
+remove(unif, unif.1, unif.2)
+```
 
 ## Poission Distribution
 ```{r eval=T, echo=T}
