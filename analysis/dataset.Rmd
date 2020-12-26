@@ -5,6 +5,12 @@ output:
   html_document
 ---
 
+```{r eval=T, echo=F, message=F, warning=F}
+library(tidyverse)
+library(dplyr)
+library(readxl)
+```
+
 # Tidyverse
 
 ## Mutate
@@ -12,5 +18,71 @@ output:
 # Missing Data
 
 # Wide/Long
+
+# Data Distributions
+
+When dealing with any distribution or random variables it is good to `set.seed()` to make sure multiple itirations output the same outcome.
+
+## Normal Distribution
+```{r eval=T, echo=T}
+set.seed(112233)
+
+norm.1 <- rnorm(n=500, mean=0, sd=1)
+norm.2 <- rnorm(n=500, mean=0, sd=3)
+norm.3 <- rnorm(n=500, mean=3, sd=1)
+
+norm <- data.frame(norm.1, norm.2, norm.3)
+```
+
+Plotting these:
+```{r eval=T, echo=T}
+ggplot(norm)+
+  geom_density(aes(x=norm.1), color="red")+
+  geom_density(aes(x=norm.2), color="blue")+
+  geom_density(aes(x=norm.3), color="darkgreen")
+```
+
+```{r eval=T, echo=F}
+remove(norm, norm.1, norm.2, norm.3)
+```
+
+## Uniform Distribution
+```{r eval=T, echo=T}
+set.seed(112233)
+
+unif.1 <- runif(500, min=2, max=4)
+unif.2 <- runif(500, min=1, max=5)
+
+unif <- data.frame(unif.1, unif.2)  
+```
+
+Plotting these:
+```{r eval=T, echo=T}
+ggplot(unif)+
+  geom_density(aes(x=unif.1), color="blue")+
+  geom_density(aes(x=unif.2), color="darkgreen")
+```
+
+## Poission Distribution
+```{r eval=T, echo=T}
+set.seed(112233)
+
+pois.1 <- rpois(n=500, lambda=5)
+pois.2 <- rpois(n=500, lambda=10)
+
+pois <- data.frame(pois.1, pois.2)
+```
+
+Plotting these:
+```{r eval=T, echo=T}
+ggplot(pois)+
+  geom_histogram(aes(x=pois.1), fill="blue", alpha=0.5)+
+  geom_histogram(aes(x=pois.2), fill="red", alpha=0.5)
+```
+
+```{r eval=T, echo=F}
+remove(pois, pois.1, pois.2)
+```
+
 
 

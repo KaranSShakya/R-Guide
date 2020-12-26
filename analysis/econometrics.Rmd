@@ -193,6 +193,7 @@ SSR <- sum(ca.summary$residuals^2)
 TSS <- sum((Score-mean(Score))^2)
 R_sq <- 1 - SSR/TSS
 R_sq
+detach(ca.data)
 ```
 
 

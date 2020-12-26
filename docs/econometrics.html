@@ -426,7 +426,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-25
+<strong>Last updated:</strong> 2020-12-26
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -517,16 +517,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreeb0634f74db82ecc2d154376f4ddad2054db1396btargetblankb0634f7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/b0634f74db82ecc2d154376f4ddad2054db1396b" target="_blank">b0634f7</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreee02be09f307dfc3889a876b0fe4b9adc9101f2e5targetblanke02be09a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/e02be09f307dfc3889a876b0fe4b9adc9101f2e5" target="_blank">e02be09</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreeb0634f74db82ecc2d154376f4ddad2054db1396btargetblankb0634f7a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreee02be09f307dfc3889a876b0fe4b9adc9101f2e5targetblanke02be09a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/b0634f74db82ecc2d154376f4ddad2054db1396b" target="_blank">b0634f7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/e02be09f307dfc3889a876b0fe4b9adc9101f2e5" target="_blank">e02be09</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -538,6 +538,7 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Unstaged changes:
+    Modified:   analysis/dataset.Rmd
     Modified:   analysis/econometrics.Rmd
 
 </code></pre>
@@ -577,6 +578,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/07e9daf7c04ce1f587d104ad7ba0db34ff73f0c6/analysis/econometrics.Rmd" target="_blank">07e9daf</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-25
+</td>
+<td>
+manual LS examples
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/07e9daf7c04ce1f587d104ad7ba0db34ff73f0c6/docs/econometrics.html" target="_blank">07e9daf</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-25
+</td>
+<td>
+manual LS examples
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -949,6 +984,7 @@ TSS &lt;- sum((Score-mean(Score))^2)
 R_sq &lt;- 1 - SSR/TSS
 R_sq</code></pre>
 <pre><code>[1] 0.05124009</code></pre>
+<pre class="r"><code>detach(ca.data)</code></pre>
 </div>
 <div id="least-square-assumptions" class="section level2">
 <h2><span class="header-section-number">3.3</span> Least Square Assumptions</h2>
@@ -967,6 +1003,43 @@ c &lt;- ggplot(lm.res, aes(sample=.resid))+
   stat_qq()+
   stat_qq_line()</code></pre>
 <p><img src="figure/econometrics.Rmd/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-20-1">
+Past versions of unnamed-chunk-20-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-20-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/07e9daf7c04ce1f587d104ad7ba0db34ff73f0c6/docs/figure/econometrics.Rmd/unnamed-chunk-20-1.png" target="_blank">07e9daf</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="covariance-matrix" class="section level2">
 <h2><span class="header-section-number">3.4</span> Covariance Matrix</h2>
