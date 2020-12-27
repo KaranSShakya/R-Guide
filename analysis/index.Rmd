@@ -14,3 +14,9 @@ output:
 3. [Applied Econometrics](econometrics.html)
 4. [Latex in R](latex.html)
 5. [GIT](git.html)
+
+## Econometrics Assignments
+Codes used to complete assignments.
+
+a. [Econ 8731 - Homework 3](q_8731_hw3.html) 
+

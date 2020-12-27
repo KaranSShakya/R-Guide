@@ -1,0 +1,36 @@
+---
+title: "Applied Econometrics"
+site: workflowr::wflow_site
+output:  
+  html_document
+---
+
+```{r eval=T, echo=F, warning=F, message=F}
+# Packages
+library(knitr)
+library(tidyverse)
+library(readxl)
+library(broom)
+library(stargazer)
+library(jtools)
+
+library(GGally)
+library(gridExtra)
+library(AER)
+```
+
+```{r eval=T, echo=F}
+consumption <- read_excel("data/data_8731.xlsx", 
+                          sheet = "consumption")
+```
+                        
+
+# Lagged Regression 
+
+# Hypothesis Tests
+
+# Dummy Variables
+
+# Log - Elasticities
+
+# Cobb-Douglas Function

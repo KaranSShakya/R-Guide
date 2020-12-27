@@ -426,7 +426,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-26
+<strong>Last updated:</strong> 2020-12-27
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -517,16 +517,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree1242c7c8207d26dfba33a70c2f99acdfbc792a78targetblank1242c7ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/1242c7c8207d26dfba33a70c2f99acdfbc792a78" target="_blank">1242c7c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree5759bf760702f1b8671855dc7e071bdfea4ba97btargetblank5759bf7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/5759bf760702f1b8671855dc7e071bdfea4ba97b" target="_blank">5759bf7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree1242c7c8207d26dfba33a70c2f99acdfbc792a78targetblank1242c7ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree5759bf760702f1b8671855dc7e071bdfea4ba97btargetblank5759bf7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/1242c7c8207d26dfba33a70c2f99acdfbc792a78" target="_blank">1242c7c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/5759bf760702f1b8671855dc7e071bdfea4ba97b" target="_blank">5759bf7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -538,11 +538,11 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  analysis/figure/
+    Untracked:  analysis/q_8731_hw3.Rmd
 
 Unstaged changes:
-    Modified:   analysis/dataset.Rmd
     Modified:   analysis/econometrics.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -581,6 +581,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/5759bf760702f1b8671855dc7e071bdfea4ba97b/analysis/econometrics.Rmd" target="_blank">5759bf7</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+<td>
+organizational fixes
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/5759bf760702f1b8671855dc7e071bdfea4ba97b/docs/econometrics.html" target="_blank">5759bf7</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+<td>
+organizational fixes
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -814,6 +848,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/5759bf760702f1b8671855dc7e071bdfea4ba97b/docs/figure/econometrics.Rmd/unnamed-chunk-8-1.png" target="_blank">5759bf7</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/KaranSShakya/R-Guide/blob/924d00b48d81d506165b27a23d6eba8456726979/docs/figure/econometrics.Rmd/unnamed-chunk-8-1.png" target="_blank">924d00b</a>
 </td>
 <td>
@@ -830,6 +875,43 @@ KaranSShakya
 <p>Or, you can use the effects plot. This is an example of the blood pressure model.</p>
 <pre class="r"><code>effect_plot(model, pred = age, interval = T, plot.points = T)</code></pre>
 <p><img src="figure/econometrics.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/5759bf760702f1b8671855dc7e071bdfea4ba97b/docs/figure/econometrics.Rmd/unnamed-chunk-9-1.png" target="_blank">5759bf7</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="multiple-variables" class="section level2">
 <h2><span class="header-section-number">2.2</span> Multiple Variables</h2>
@@ -856,6 +938,43 @@ Percent_Black         0.19559747   -0.82845885    1.00000000</code></pre>
 <p>Viewing in diagrams:</p>
 <pre class="r"><code>ggpairs(cancer.2)</code></pre>
 <p><img src="figure/econometrics.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
+Past versions of unnamed-chunk-13-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-13-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/5759bf760702f1b8671855dc7e071bdfea4ba97b/docs/figure/econometrics.Rmd/unnamed-chunk-13-1.png" target="_blank">5759bf7</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <hr />
 </div>
 </div>
@@ -967,6 +1086,43 @@ c &lt;- ggplot(lm.res, aes(sample=.resid))+
   stat_qq()+
   stat_qq_line()</code></pre>
 <p><img src="figure/econometrics.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-24-1">
+Past versions of unnamed-chunk-24-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-24-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/5759bf760702f1b8671855dc7e071bdfea4ba97b/docs/figure/econometrics.Rmd/unnamed-chunk-24-1.png" target="_blank">5759bf7</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="covariance-matrix" class="section level2">
 <h2><span class="header-section-number">3.4</span> Covariance Matrix</h2>
@@ -1179,7 +1335,97 @@ Group3         27973.635   27180.058   28767.211   69.109   0.000
 </div>
 <div id="t-test-b0" class="section level2">
 <h2><span class="header-section-number">7.2</span> t-test b=0</h2>
-<hr />
+<p>For this we will be using the <strong>score~STR</strong> regression.</p>
+<pre class="r"><code>summ(ca.model)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 420
+Dependent Variable: Score
+Type: OLS linear regression 
+
+MODEL FIT:
+F(1,418) = 22.58, p = 0.00
+R² = 0.05
+Adj. R² = 0.05 
+
+Standard errors: OLS
+-------------------------------------------------
+                      Est.   S.E.   t val.      p
+----------------- -------- ------ -------- ------
+(Intercept)         698.93   9.47    73.82   0.00
+Str                  -2.28   0.48    -4.75   0.00
+-------------------------------------------------</code></pre>
+<p><span class="math display">\[
+\begin{align}
+H_0: \beta_1 = 0 &amp;&amp;&amp; H_1: \beta_1 \neq 0 
+\end{align}
+\]</span></p>
+<p>Testing this hypothesis manually: <span class="math display">\[
+t = \frac{-2.2798 - 0}{0.4798} = -4.75
+\]</span> This means we reject the null hypothesis at 5% because the level of significance is <span class="math inline">\(|t| &gt; 1.96\)</span>. This is what the <code>summ</code> results in <strong>t val</strong> and <strong>p</strong>.</p>
+</div>
+<div id="joint-hypothesis" class="section level2">
+<h2><span class="header-section-number">7.3</span> Joint Hypothesis</h2>
+<p><span class="math display">\[
+F = \frac{(SSR_{restricted} - SSR_{unrestricted})/q}{SSR_{unrestricted}/(n-k-1)}
+\]</span></p>
+<pre><code>MODEL INFO:
+Observations: 420
+Dependent Variable: Score
+Type: OLS linear regression 
+
+MODEL FIT:
+F(3,416) = 107.455, p = 0.000
+R² = 0.437
+Adj. R² = 0.433 
+
+Standard errors: OLS
+------------------------------------------------------
+                       Est.     S.E.    t val.       p
+----------------- --------- -------- --------- -------
+(Intercept)         649.578   15.206    42.719   0.000
+expenditure           0.004    0.001     2.739   0.006
+Str                  -0.286    0.481    -0.596   0.551
+english              -0.656    0.039   -16.776   0.000
+------------------------------------------------------</code></pre>
+<p>Testing the joint hypothesis that <strong>Str = 0</strong> and <strong>english = 0</strong>. We use the function <code>linearHypothesis</code>.</p>
+<pre class="r"><code>linearHypothesis(model.f, c(&quot;Str=0&quot;, &quot;english=0&quot;))</code></pre>
+<pre><code>Linear hypothesis test
+
+Hypothesis:
+Str = 0
+english = 0
+
+Model 1: restricted model
+Model 2: Score ~ expenditure + Str + english
+
+  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+1    418 146545                                  
+2    416  85700  2     60845 147.68 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>F - stat is <strong>147.68</strong> and P-value is <strong>2.2e-16</strong> thus reject that null hypothesis.</p>
+<p>A <strong>heteroskedastic-robust F test</strong> can also be conducted by adding <code>white.adjust</code>.</p>
+<pre class="r"><code>linearHypothesis(model.f, c(&quot;Str=0&quot;, &quot;english=0&quot;), white.adjust = &quot;hc1&quot;)</code></pre>
+<pre><code>Linear hypothesis test
+
+Hypothesis:
+Str = 0
+english = 0
+
+Model 1: restricted model
+Model 2: Score ~ expenditure + Str + english
+
+Note: Coefficient covariance matrix supplied.
+
+  Res.Df Df      F    Pr(&gt;F)    
+1    418                        
+2    416  2 220.77 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+</div>
+<div id="testing-multiple-models" class="section level1">
+<h1><span class="header-section-number">8</span> Testing Multiple Models</h1>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1229,7 +1475,6 @@ loaded via a namespace (and not attached):
 [61] data.table_1.12.8  modelr_0.1.7       vctrs_0.3.0        httpuv_1.5.2      
 [65] cellranger_1.1.0   gtable_0.3.0       reshape_0.8.8      assertthat_0.2.1  
 [69] xfun_0.19          openxlsx_4.1.5     later_1.0.0        ellipsis_0.3.0    </code></pre>
-</div>
 </div>
 </div>
 

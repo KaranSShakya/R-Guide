@@ -316,5 +316,44 @@ summ(reg, confint = TRUE, ci.width = 0.95, digits = 3)
 
 ## t-test b=0
 
-***
+For this we will be using the **score~STR** regression. 
+
+```{r eval=T, echo=T}
+summ(ca.model)
+```
+
+$$
+\begin{align}
+H_0: \beta_1 = 0 &&& H_1: \beta_1 \neq 0 
+\end{align}
+$$
+
+Testing this hypothesis manually:
+$$
+t = \frac{-2.2798 - 0}{0.4798} = -4.75
+$$
+This means we reject the null hypothesis at 5% because the level of significance is $|t| > 1.96$. This is what the `summ` results in **t val** and **p**.
+
+## Joint Hypothesis
+$$
+F = \frac{(SSR_{restricted} - SSR_{unrestricted})/q}{SSR_{unrestricted}/(n-k-1)}
+$$
+
+```{r eval=T, echo=F}
+model.f <- lm(Score ~ expenditure + Str + english, data=ca.data)
+summ(model.f, digits = 3)
+```
+
+Testing the joint hypothesis that **Str = 0** and **english = 0**. We use the function `linearHypothesis`.
+```{r eval=T, echo=T}
+linearHypothesis(model.f, c("Str=0", "english=0"))
+```
+F - stat is **147.68** and P-value is **2.2e-16** thus reject that null hypothesis.
+
+A **heteroskedastic-robust F test** can also be conducted by adding `white.adjust`.
+```{r eval=T, echo=T}
+linearHypothesis(model.f, c("Str=0", "english=0"), white.adjust = "hc1")
+```
+
+# Testing Multiple Models
 
