@@ -21,11 +21,51 @@ library(AER)
 
 ```{r eval=T, echo=F}
 consumption <- read_excel("data/data_8731.xlsx", 
-                          sheet = "consumption")
+    sheet = "consumption")
 ```
-                        
 
 # Lagged Regression 
+Dataset is:
+```{r eval=T, echo=F}
+head(consumption, 2)
+```
+$c_t$ is log of consumption, $y_t$ is log of income. Their first differences are $\Delta c_t = c_t - c_{t-1}$ and $\Delta y_t = y_t - y_{t-1}$.
+
+The **model** for the period 1953:1 to 1996:4,
+$$
+\Delta c_t = \beta_1 + \beta_2 \Delta y_t + \beta_3 \Delta y_{t-1} + \beta_4 \Delta y_{t-2} + \beta_5 \Delta y_{t-3} + \beta_6 \Delta y_{t-4}
+$$
+## Estimation
+Let $\gamma = \sum_{l=2}^{6} \beta_l$. Calculate $\hat{\gamma}$ and its SE.
+
+```{r eval=T, echo=T}
+consumption1 <- consumption %>% 
+  mutate(ct = log(Consumption), yt=log(Income),
+         del_ct = ct-lag(ct),
+         del_yt = yt-lag(yt),
+         yt1 = lag(yt, 1),
+         yt2 = lag(yt, 2),
+         yt3 = lag(yt, 3),
+         yt4 = lag(yt, 4),
+         del_yt1 = yt1-lag(yt1),
+         del_yt2 = yt2-lag(yt2),
+         del_yt3 = yt3-lag(yt3),
+         del_yt4 = yt4-lag(yt4),
+         ct1 = lag(ct, 1)) #adding new variables 
+
+cons1 <- consumption1 %>% 
+  filter(Year >= 1953 & Year <= 1996)
+
+cons1.model <- lm(del_ct ~ del_yt+del_yt1+del_yt2+del_yt3+del_yt4, data=cons1)
+summ(cons1.model, digits = 4)
+```
+
+```{r eval=T, echo=T}
+gamma_h <- cons1.model$coefficients[2]+cons1.model$coefficients[3]+
+  cons1.model$coefficients[4]+cons1.model$coefficients[5]+
+  cons1.model$coefficients[6]
+kable(gamma_h, row.names = F, align = "l")
+```
 
 # Hypothesis Tests
 
