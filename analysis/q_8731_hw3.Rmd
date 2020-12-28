@@ -21,7 +21,9 @@ library(AER)
 
 ```{r eval=T, echo=F}
 consumption <- read_excel("data/data_8731.xlsx", 
-    sheet = "consumption")
+                        sheet = "consumption")
+classical <- read_excel("data/data_8731.xlsx", 
+                        sheet = "classical")
 ```
 
 # Lagged Regression 
@@ -67,7 +69,32 @@ gamma_h <- cons1.model$coefficients[2]+cons1.model$coefficients[3]+
 kable(gamma_h, row.names = F, align = "l")
 ```
 
+***
+
 # Hypothesis Tests
+The dataset is as follows:
+```{r eval=T, echo=F}
+head(classical, 5)
+attach(classical)
+```
+Classical linear regression model,
+$$
+\begin{align}
+y = \beta_1 + \beta_2 x_2 + \beta_3 x_3 + u, && u \sim N (0, \sigma^2 I) 
+\end{align}
+$$
+```{r eval=T, echo=T}
+model.class <- lm(Dep~X_2+X_3, data = classical)
+summ(model.class, digits = 4)
+```
+**test $\beta_3 = 0$**
+```{r eval=T, echo=T}
+linearHypothesis(model.class, "X_3 = 0")
+```
+
+Or we could have simply looked at the **t-value** provided at the `summ` table. The **p-values** are the same for both.
+
+***
 
 # Dummy Variables
 
