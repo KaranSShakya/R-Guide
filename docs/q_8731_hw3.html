@@ -517,16 +517,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreebd2489c59625d80c775548fd5bb760d497066d07targetblankbd2489ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/bd2489c59625d80c775548fd5bb760d497066d07" target="_blank">bd2489c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree97b83290d0ee2ea06bbb34fb6c99b7c1bd0d675ctargetblank97b8329a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaranSShakya/R-Guide/tree/97b83290d0ee2ea06bbb34fb6c99b7c1bd0d675c" target="_blank">97b8329</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetreebd2489c59625d80c775548fd5bb760d497066d07targetblankbd2489ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaranSShakyaRGuidetree97b83290d0ee2ea06bbb34fb6c99b7c1bd0d675ctargetblank97b8329a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/bd2489c59625d80c775548fd5bb760d497066d07" target="_blank">bd2489c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaranSShakya/R-Guide/tree/97b83290d0ee2ea06bbb34fb6c99b7c1bd0d675c" target="_blank">97b8329</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -577,6 +577,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaranSShakya/R-Guide/blob/97b83290d0ee2ea06bbb34fb6c99b7c1bd0d675c/analysis/q_8731_hw3.Rmd" target="_blank">97b8329</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-28
+</td>
+<td>
+8731 qt 2
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaranSShakya/R-Guide/97b83290d0ee2ea06bbb34fb6c99b7c1bd0d675c/docs/q_8731_hw3.html" target="_blank">97b8329</a>
+</td>
+<td>
+KaranSShakya
+</td>
+<td>
+2020-12-28
+</td>
+<td>
+8731 qt 2
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -774,10 +808,58 @@ Model 2: Dep ~ X_2 + X_3
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Or we could have simply looked at the <strong>t-value</strong> provided at the <code>summ</code> table. The <strong>p-values</strong> are the same for both.</p>
+<pre><code>Warning in remove(classical, model.class, X_3): object &#39;X_3&#39; not found</code></pre>
 <hr />
 </div>
 <div id="dummy-variables" class="section level1">
 <h1><span class="header-section-number">3</span> Dummy Variables</h1>
+<p>Dummy variable dataset, where Group 1, Group 2, and Group 3 are dummy variables.</p>
+<pre><code># A tibble: 3 x 5
+    Obs Group1 Group2 Group3 Earnings
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1     1      0      0      1     570.
+2     2      0      0      1     896.
+3     3      0      0      1    1111 </code></pre>
+<p>Regress y on all 3 dummy variables. Important to remove the intercept term. And construct a <strong>0.95</strong> CI of Group3:</p>
+<pre class="r"><code>model.dum &lt;- lm(Earnings~-1+Group1+Group2+Group3, data=earnings)
+summ(model.dum, confint = T, ci.width = 0.95, digits = 2)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 4266
+Dependent Variable: Earnings
+Type: OLS linear regression 
+
+MODEL FIT:
+F(3,4263) = 3842.49, p = 0.00
+R² = 0.73
+Adj. R² = 0.73 
+
+Standard errors: OLS
+-------------------------------------------------------------
+                   Est.       2.5%      97.5%   t val.      p
+------------ ---------- ---------- ---------- -------- ------
+Group1         22880.48   21964.03   23796.92    48.95   0.00
+Group2         25080.17   24335.14   25825.21    66.00   0.00
+Group3         27973.63   27180.06   28767.21    69.11   0.00
+-------------------------------------------------------------</code></pre>
+<p>Regress y on Group3 only:</p>
+<pre class="r"><code>model.dum3 &lt;- lm(Earnings~-1+Group3, data=earnings)
+summ(model.dum3, digits = 2, confint = T, ci.width = 0.95, robust = &quot;HC1&quot;)</code></pre>
+<pre><code>MODEL INFO:
+Observations: 4266
+Dependent Variable: Earnings
+Type: OLS linear regression 
+
+MODEL FIT:
+F(1,4265) = 1849.35, p = 0.00
+R² = 0.30
+Adj. R² = 0.30 
+
+Standard errors: Robust, type = HC1
+-------------------------------------------------------------
+                   Est.       2.5%      97.5%   t val.      p
+------------ ---------- ---------- ---------- -------- ------
+Group3         27973.63   27132.54   28814.73    65.20   0.00
+-------------------------------------------------------------</code></pre>
 </div>
 <div id="log---elasticities" class="section level1">
 <h1><span class="header-section-number">4</span> Log - Elasticities</h1>

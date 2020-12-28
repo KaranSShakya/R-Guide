@@ -24,6 +24,10 @@ consumption <- read_excel("data/data_8731.xlsx",
                         sheet = "consumption")
 classical <- read_excel("data/data_8731.xlsx", 
                         sheet = "classical")
+classical <- read_excel("data/data_8731.xlsx", 
+                        sheet = "classical")
+earnings <- read_excel("data/data_8731.xlsx", 
+                       sheet = "earnings")
 ```
 
 # Lagged Regression 
@@ -75,7 +79,6 @@ kable(gamma_h, row.names = F, align = "l")
 The dataset is as follows:
 ```{r eval=T, echo=F}
 head(classical, 5)
-attach(classical)
 ```
 Classical linear regression model,
 $$
@@ -94,9 +97,33 @@ linearHypothesis(model.class, "X_3 = 0")
 
 Or we could have simply looked at the **t-value** provided at the `summ` table. The **p-values** are the same for both.
 
+```{r eval=T, echo=F}
+remove(classical, model.class,X_3)
+```
+
 ***
 
 # Dummy Variables
+Dummy variable dataset, where Group 1, Group 2, and Group 3 are dummy variables.
+```{r eval=T, echo=F}
+head(earnings, 3)
+```
+
+Regress y on all 3 dummy variables. Important to remove the intercept term. And construct a **0.95** CI of Group3:
+```{r eval=T, echo=T}
+model.dum <- lm(Earnings~-1+Group1+Group2+Group3, data=earnings)
+summ(model.dum, confint = T, ci.width = 0.95, digits = 2)
+```
+
+Regress y on Group3 only:
+```{r eval=T, echo=T}
+model.dum3 <- lm(Earnings~-1+Group3, data=earnings)
+summ(model.dum3, digits = 2, confint = T, ci.width = 0.95, robust = "HC1")
+```
+
+```{r eval=T, echo=F}
+remove(earnings, model.dum, model.dum3)
+```
 
 # Log - Elasticities
 
