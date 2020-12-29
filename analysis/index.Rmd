@@ -20,3 +20,25 @@ Codes used to complete assignments.
 
 a. [Econ 8731 - Homework 3](q_8731_hw3.html) 
 
+***
+
+## Useful Resources and Links
+
+i. R Markdown Cheat Sheet: [2015](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf), [2016](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+ii. [Tex Cheat Sheet](https://www.math.brown.edu/johsilve/ReferenceCards/TeXRefCard.v1.5.pdf)
+iii. [Econometrics with R](https://www.econometrics-with-r.org/index.html)
+iv. 8731 - Lung Fei Notes:
+    + [Matrix Algebra](https://buckeyemailosu-my.sharepoint.com/:b:/g/personal/shakya_11_buckeyemail_osu_edu/EfCjKbrGRZ1ClH_MvECP5sEB7oqFkSMereTpxE1ewanK8A?e=qVB3Zk)
+    + [Linear Regression Model](https://buckeyemailosu-my.sharepoint.com/:b:/g/personal/shakya_11_buckeyemail_osu_edu/EeswpZrcIVhGo-GIigbOKkUBcgl32yD1o3Vfv87lSfA46w?e=oJicby) 
+    + [Asymptotic Theory](https://buckeyemailosu-my.sharepoint.com/:b:/g/personal/shakya_11_buckeyemail_osu_edu/EfTfOQarsLpCpUV41nDyO6ABuehVhUQt6yWkmdOjprEO3A?e=UxFEfo) 
+    + [Non-linear Regression](https://buckeyemailosu-my.sharepoint.com/:b:/g/personal/shakya_11_buckeyemail_osu_edu/EahGpxYtRGtGtF5IbZdBlmIBysTntYWTd0KsdujrwtvxBA?e=JSkzrq)
+    + [Generalized Linear Regression](https://buckeyemailosu-my.sharepoint.com/:b:/g/personal/shakya_11_buckeyemail_osu_edu/Eafa4Gr5DcBClFctPn8mmX0BYX01qpEDY3TIKfKDRd61TA?e=Ws9Km9) 
+
+
+
+
+
+
+
+
+
