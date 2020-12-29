@@ -28,6 +28,12 @@ classical <- read_excel("data/data_8731.xlsx",
                         sheet = "classical")
 earnings <- read_excel("data/data_8731.xlsx", 
                        sheet = "earnings")
+gasoline <- read_excel("data/data_8731.xlsx", 
+                       sheet = "gasoline") %>% 
+  mutate(Gas_pop=GasExp/Pop)
+cost <- read_excel("data/data_8731.xlsx", 
+                       sheet = "cost") %>% 
+  mutate(C_Pf = Cost/Pf, ln_q=log(Q)^2*0.5, Pk_Pf = Pk/Pf, Pl_Pf=Pl/Pf)
 ```
 
 # Lagged Regression 
@@ -127,4 +133,42 @@ remove(earnings, model.dum, model.dum3)
 
 # Log - Elasticities
 
+We start off with the regression:
+```{r eval=T, echo=T}
+model.gas <- lm(Gas_pop~Year+GasP+Income+Pnc+Puc+Ppt+Pd+Pn+Ps, 
+                data=gasoline)
+summ(model.gas, digits = 10)
+```
+
+The log transformation for elasticity:
+```{r eval=T, echo=T}
+model.logg <- lm(log(Gas_pop)~Year+log(GasP)+
+                     log(Income)+log(Pnc)+log(Puc)+log(Ppt)+log(Pd)+
+                     log(Pn)+log(Ps), data=gasoline)
+summ(model.logg, digits = 5)
+```
+
+```{r eval=T, echo=F}
+remove(model.gas, model.logg)
+```
+
 # Cobb-Douglas Function
+
+The dataset is:
+```{r eval=T, echo=F}
+head(cost, 3)
+```
+
+The model is: 
+```{r eval=T, echo=T}
+model.c <- lm(log(C_Pf) ~ log(Q)+ln_q+log(Pk_Pf)+log(Pl_Pf), data=cost)
+summ(model.c, digits = 6)
+```
+
+Estimate the **covariance matrix**:
+```{r eval=T, echo=T}
+vcov(model.c)
+```
+
+***
+
